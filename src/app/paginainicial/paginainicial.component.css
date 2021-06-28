@@ -2,6 +2,8 @@
     opacity: 55%;
 }
 
+
+/* cards */
 .fa{
     font-size: 35pt;
     padding: 10px;
@@ -22,7 +24,7 @@
 .card{
     border: none;
 }
-
+/* cards */
 
 .p-centro {
     padding: 40px;
