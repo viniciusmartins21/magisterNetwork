@@ -1,0 +1,44 @@
+.opacidade {
+    opacity: 55%;
+}
+
+
+/* cards */
+.fa{
+    font-size: 35pt;
+    padding: 10px;
+    color:black;
+}
+.fa-linkedin-square:hover{
+    color: rgb(12, 146, 199);
+}
+
+.fa-github:hover{
+    color: blueviolet;
+}
+
+.fundo-integrantes{
+    background-color:#012875;
+}
+
+.card{
+    border: none;
+}
+/* cards */
+
+.p-centro {
+    padding: 40px;
+}
+
+.mb-topo{
+    margin-bottom: 600px;
+}
+
+.text-tam {
+    font-size: larger;
+}
+
+.esquerda {
+    margin-right: 90px;
+    margin-bottom: 60px;
+}
