@@ -9,6 +9,7 @@ import { PaginainicialComponent } from './paginainicial/paginainicial.component'
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 
 
@@ -19,14 +20,16 @@ import { RodapeComponent } from './rodape/rodape.component';
     PaginainicialComponent,
     RodapeComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    CadastroComponent,
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
