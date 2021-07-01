@@ -14,9 +14,9 @@ import { RodapeComponent } from './rodape/rodape.component';
   declarations: [
     AppComponent,
     PaginainicialComponent,
-    MenuComponent,
     RodapeComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
 
   ],
   imports: [
