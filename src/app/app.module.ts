@@ -24,7 +24,6 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     CadastroComponent,
 
 
-
   ],
   imports: [
     BrowserModule,
