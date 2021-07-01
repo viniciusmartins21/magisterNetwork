@@ -1,5 +1,5 @@
 #img-bg{
-    background-image: url('https://i.imgur.com/xlHiUDC.jpg');
+    background-image: url('https://i.imgur.com/dZslT8F.jpg');
 
     min-height: 730px;
     background-position: center;
@@ -16,6 +16,9 @@
     border-radius: 5%;
     height: 570px;
 }
-button{
-    background-color:#00E7D7;
+.btn-entrar{
+    background-color: #FF9C05;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+    width: 100px;
 }
