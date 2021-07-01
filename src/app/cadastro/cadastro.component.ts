@@ -13,7 +13,7 @@ import { AuthService } from '../service/auth.service';
 export class CadastroComponent implements OnInit {
 
   user: User = new User
-  confirmaSenha: string 
+  confirmarSenha: string 
   tipoUsuario: string 
 
 
@@ -25,12 +25,20 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit() {
     window.scroll (0,0)
-    
-
-
 
   }
 
+  confirmSenha(event: any) { 
+    this.confirmarSenha = event.target.value
+  }
+
+  tipoUser(event: any) {
+    this.tipoUsuario = event.target.value
+  }
+
+  cadastrar() {
+    this.
+  }
 
 
 }
