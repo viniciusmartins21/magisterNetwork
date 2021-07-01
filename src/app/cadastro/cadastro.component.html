@@ -1,7 +1,10 @@
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="col-md-6" id="img-bg"></div>
+    <div class="row d-flex align-items-center">
+        <div class="col-md-6 d-flex justify-content-center" >
+            <img src="https://i.imgur.com/6mHc3I3.png" width="400px" height="400px" alt="">
+        </div>
+        
 
         <div class="col-md-6 mt-5 mb-5">
             <div class="row d-flex justify-content-center">
@@ -15,32 +18,37 @@
 
                     <div class="form-grop">
                         <label for="nome">Nome</label>
-                        <input ([(ngModel)]="user.nome"  class="form-control" type="text" name="nome" id="nome" placeholder="Seu nome"  >
+
                     </div>
 
                     <div class="form-grop">
                         <label for="usuario">Usuario</label>
-                        <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
+                        <input class="form-control mb-3" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
+                    </div>
+
+                    <div class="form-grop">
+                        <label for="email">E-mail</label>
+                        <input class="form-control mb-3" type="email" name="usuario" id="usuario" placeholder="name@example.com">
                     </div>
 
                     
                     <div class="form-grop">
                         <label for="foto">Link da Foto</label>
-                        <input class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
+                        <input class="form-control mb-3" type="text" name="foto" id="foto" placeholder="Link da sua foto">
                     </div>
 
                     <div class="form-grop">
                         <label for="senha">Senha</label>
-                        <input class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
+                        <input class="form-control mb-3" type="password" name="senha" id="senha" placeholder="Sua Senha">
                     </div>
 
                     <div class="form-grop">
                         <label for="confirmSenha">Confirmar Senha</label>
-                        <input class="form-control" type="password" name="confirmSenha" id="confirmSenha"
+                        <input class="form-control mb-3" type="password" name="confirmSenha" id="confirmSenha"
                             placeholder="Confirme sua senha">
                     </div>
                     <div class="d-flex justify-content-center mt-3">
-                        <button type="submit" class="btn btn-amarelo me-4">Cancelar</button>
+                        <button type="submit" class="btn btn-amarelo me-4" routerLink='/login'>Cancelar</button>
                         <button type="submit" class="btn btn-azul ms-4">Cadastrar</button>
                     </div>
                 </div>
