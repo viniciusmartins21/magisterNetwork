@@ -1,0 +1,16 @@
+.bg-amarelo {
+    background-color: #FFBC42;
+}
+
+#quadro-amarelo{
+    padding: 45px 19px ;
+    border-radius: 18px; 
+}
+
+.font-tam {
+    font-size: 15pt;
+}
+
+.ajuste-margin {
+    margin-left: 15px;
+}
