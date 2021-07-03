@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { IntegrantesComponent } from './integrantes/integrantes.component';
+import { RodapeTecnologiasComponent } from './rodape-tecnologias/rodape-tecnologias.component';
 
 
 
@@ -24,6 +25,7 @@ import { IntegrantesComponent } from './integrantes/integrantes.component';
     MenuComponent,
     CadastroComponent,
     IntegrantesComponent,
+    RodapeTecnologiasComponent,
 
 
   ],
