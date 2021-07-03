@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { IntegrantesComponent } from './integrantes/integrantes.component';
 
 
 
@@ -22,6 +23,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     LoginComponent,
     MenuComponent,
     CadastroComponent,
+    IntegrantesComponent,
 
 
   ],
