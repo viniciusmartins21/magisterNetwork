@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { DevsDescricaoComponent } from './devs-descricao/devs-descricao.component';
 
 
 
@@ -22,15 +23,18 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     LoginComponent,
     MenuComponent,
     CadastroComponent,
-
-
+    DevsDescricaoComponent
   ],
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
+
+  
   providers: [],
   bootstrap: [AppComponent]
 })
