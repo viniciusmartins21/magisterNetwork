@@ -1,12 +1,15 @@
 .bg-menu{
 
-    background-color:#012875;
+    background-color:#006BA6;
 }
 
 .bt-logar{
-    background-color: #00E7D7;
+    border-radius: 30px;
+    width: 80px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
 }
 
 .bt-cadastrar{
     background-color: #FF9C05;
+    border-radius: 30px;
 }
