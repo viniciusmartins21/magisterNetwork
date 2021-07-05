@@ -11,6 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { OdsComponent } from './ods/ods.component';
+import { IntegrantesComponent } from './integrantes/integrantes.component';
+import { RodapeTecnologiasComponent } from './rodape-tecnologias/rodape-tecnologias.component';
+import { DevsDescricaoComponent } from './devs-descricao/devs-descricao.component';
+
 
 
 
@@ -24,15 +28,22 @@ import { OdsComponent } from './ods/ods.component';
     MenuComponent,
     CadastroComponent,
     OdsComponent,
-
-
+    IntegrantesComponent,
+    RodapeTecnologiasComponent,
+    DevsDescricaoComponent
   ],
+
+
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
+
+  
   providers: [],
   bootstrap: [AppComponent]
 })
