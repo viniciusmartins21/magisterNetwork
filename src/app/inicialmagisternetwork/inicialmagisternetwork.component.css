@@ -1,0 +1,16 @@
+#esquerda, #centro, #direita{
+    border-radius: 30px;
+    padding: 55px 0;
+    background-color: #FFBC42;
+}
+
+.img{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.textcard{
+    font-size: 20px;
+    text-align: center;
+    /*font-weight: bold;*/
+}
