@@ -1,0 +1,27 @@
+.fundo-integrantes{
+    background-image: url('https://i.imgur.com/memoGWv.jpg');
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;  
+    background-size: cover;
+}
+
+.fa{
+    font-size: 35pt;
+    padding: 10px;
+    color:black;
+}
+.fa-linkedin-square:hover{
+    color: rgb(12, 146, 199);
+}
+
+.fa-github:hover{
+    color: blueviolet;
+}
+
+
+.card{
+    border: none;
+    background-color: #FFBC42;
+}
+
