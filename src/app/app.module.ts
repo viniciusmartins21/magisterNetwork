@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { IntegrantesComponent } from './integrantes/integrantes.component';
+import { DevsDescricaoComponent } from './devs-descricao/devs-descricao.component';
+
 
 
 
@@ -24,15 +26,19 @@ import { IntegrantesComponent } from './integrantes/integrantes.component';
     MenuComponent,
     CadastroComponent,
     IntegrantesComponent,
-
-
+    DevsDescricaoComponent
   ],
+
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
+
+  
   providers: [],
   bootstrap: [AppComponent]
 })
