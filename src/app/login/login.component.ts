@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
       this.userLogin.foto
 
-      this.router.navigate(['/paginainicial'])
+      this.router.navigate(['/pagina-principal'])
     },erro => {
       if(erro.status == 500) {
         alert('Usuário ou senha estão incorretos!')

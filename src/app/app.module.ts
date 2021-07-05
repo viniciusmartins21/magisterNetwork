@@ -15,6 +15,8 @@ import { OdsComponent } from './ods/ods.component';
 import { IntegrantesComponent } from './integrantes/integrantes.component';
 import { RodapeTecnologiasComponent } from './rodape-tecnologias/rodape-tecnologias.component';
 import { DevsDescricaoComponent } from './devs-descricao/devs-descricao.component';
+import { MenuLogadoComponent } from './menu-logado/menu-logado.component';
+import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
 
 
@@ -32,7 +34,9 @@ import { DevsDescricaoComponent } from './devs-descricao/devs-descricao.componen
     OdsComponent,
     IntegrantesComponent,
     RodapeTecnologiasComponent,
-    DevsDescricaoComponent
+    DevsDescricaoComponent,
+    MenuLogadoComponent,
+    PaginaPrincipalComponent
   ],
 
 
