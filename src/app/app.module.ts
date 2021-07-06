@@ -17,6 +17,7 @@ import { RodapeTecnologiasComponent } from './rodape-tecnologias/rodape-tecnolog
 import { DevsDescricaoComponent } from './devs-descricao/devs-descricao.component';
 import { MenuLogadoComponent } from './menu-logado/menu-logado.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import { TemaComponent } from './tema/tema.component';
 
 
 
@@ -36,7 +37,8 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
     RodapeTecnologiasComponent,
     DevsDescricaoComponent,
     MenuLogadoComponent,
-    PaginaPrincipalComponent
+    PaginaPrincipalComponent,
+    TemaComponent
   ],
 
 
