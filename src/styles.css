@@ -6,5 +6,9 @@
     font-family: 'Hind Siliguri', sans-serif;
 }
 
-
+.btn-amarelo{
+    background-color: #FF9C05;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+}
 
