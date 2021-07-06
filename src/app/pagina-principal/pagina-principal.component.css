@@ -1,0 +1,67 @@
+.btn-azul{
+    background-color: #006BA6;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+    font-weight: 500;
+    font-size: 20px;
+    width: 200px;
+}
+
+.fundo-integrantes{
+    background-image: url('https://i.imgur.com/memoGWv.jpg');
+    min-height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;  
+    background-size: cover;
+}
+
+.fa{
+    font-size: 35pt;
+    padding: 10px;
+    color:black;
+}
+.fa-linkedin-square:hover{
+    color: rgb(12, 146, 199);
+}
+
+.tam{
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.tam2{
+    
+    height: 70px;
+    width: 70px;
+
+}
+
+.tx-esq{
+    font-size: 15px;
+}
+
+.fa-github:hover{
+    color: blueviolet;
+}
+
+
+.card{
+    border: none;
+    background-color: #FFBC42;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+    font-weight: 500;
+    font-size: 20px;
+    /*width: 200px;*/
+}
+
+.padding{
+    padding: 35px 50px;
+}
+
+.centro{
+    border-radius: 30px;
+    background-color: gray;
+    margin-top: 35px;
+}
