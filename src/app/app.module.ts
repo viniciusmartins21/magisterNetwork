@@ -18,6 +18,8 @@ import { DevsDescricaoComponent } from './devs-descricao/devs-descricao.componen
 import { MenuLogadoComponent } from './menu-logado/menu-logado.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { TemaComponent } from './tema/tema.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 
 
 
@@ -38,7 +40,9 @@ import { TemaComponent } from './tema/tema.component';
     DevsDescricaoComponent,
     MenuLogadoComponent,
     PaginaPrincipalComponent,
-    TemaComponent
+    TemaComponent,
+    TemaEditComponent,
+    TemaDeleteComponent
   ],
 
 

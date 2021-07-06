@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { PaginainicialComponent } from './paginainicial/paginainicial.component';
 import{ PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { TemaComponent } from './tema/tema.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'paginainicial', pathMatch: 'full'},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: 'paginainicial', component: PaginainicialComponent},
   {path: 'devs-descricao', component: DevsDescricaoComponent},
   {path: 'pagina-principal', component: PaginaPrincipalComponent},
-  {path: 'tema', component: TemaComponent}
+  {path: 'tema', component: TemaComponent},
+  {path: 'tema-edit/:id', component: TemaEditComponent},
+  {path: 'tema-delete/:id', component:TemaDeleteComponent},
 ];
 
 @NgModule({
