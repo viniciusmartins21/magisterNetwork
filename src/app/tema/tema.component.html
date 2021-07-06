@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row banner">
     <div class="col-md-12">
       <a routerLink="/pagina-principal" class="text-dark text-left"><i class="fa fa-angle-double-left"
@@ -33,6 +33,66 @@
   </div>
 
   <div class="row mt-3 mb-5 d-flex justify-content-center">
+    <div class="col-md-6">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição Tema</th>
+            <th scope="col" class="text-end">Alterações</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let tema of listaTemas'>
+            <th>{{tema.id}}</th>
+            <td>{{tema.disciplinaTema}}</td>
+            <td class="d-flex justify-content-end">
+              <button class="btn btn-amarelo me-2 text-white" [routerLink]="['/tema-edit', tema.id]">Editar</button>
+              <button class="btn btn-azul text-white" [routerLink]="['/tema-delete', tema.id]">Apagar</button>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div> -->
+
+
+<div class="container-fluid banner">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-6">
+      <div class="text-center">
+        <h1 class="f-70">Temas</h1>
+        <h2>Veja todos os temas aqui, ou adicone muitos outros!</h2>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <img src="https://i.imgur.com/Qh7ujLi.png
+" alt="Foto de uma pessoa no computador" width="500px" height="500px" class="img-fluid">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row d-flex align-items-center m-5">
+    <div class="col-md-4 me-5">
+      <div class="bg-text">
+        <h2 class="text-center">Adicionar tema:</h2>
+
+        <div class="form-group d-flex justify-content-center mb-4 mt-4">
+          <input [(ngModel)]='tema.disciplinaTema' type="text" class="form-control form-width" id="descricao"
+            placeholder="Digite a descrição do tema">
+        </div>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-azul mt-3 text-white" (click)='cadastrar()'>Cadastrar</button>
+        </div>
+      </div>
+    </div>
     <div class="col-md-6">
       <table class="table table-hover">
         <thead>
