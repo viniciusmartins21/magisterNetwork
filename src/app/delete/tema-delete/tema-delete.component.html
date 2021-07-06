@@ -1,0 +1,28 @@
+<div class="banner">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h1 class="text-center text-dark mt-5">Apagar Tema</h1>
+
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <h4 class="text-center text-dark">Você tem certeza que deseja apagar esse tema? Todas as postagens
+                    relacioandas a ele serão igualmente apagadas.</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="text-center text-azul ">Tema: {{tema.disciplinaTema}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center mt-3 mb-4">
+                <button class="btn btn-amarelo text-white me-3" routerLink='/tema'>Não</button>
+                <button class="btn btn-azul text-white" (click)='apagar()'>Sim</button>
+
+            </div>
+        </div>
+    </div>
+</div>

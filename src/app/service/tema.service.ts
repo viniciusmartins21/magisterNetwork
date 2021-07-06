@@ -15,18 +15,30 @@ export class TemaService {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
-  refreshToken(){
+  refreshToken() {
     this.token = {
-      headers: new HttpHeaders().set('Authorization',environment.token)
+      headers: new HttpHeaders().set('Authorization', environment.token)
     }
   }
 
-  getAllTema(): Observable<Tema[]>{
+  getAllTema(): Observable<Tema[]> {
     return this.http.get<Tema[]>('https://magisternetwork.herokuapp.com/tema', this.token)
   }
 
-  postTema(tema: Tema): Observable<Tema>{
+  getByIdTema(id: number): Observable<Tema> {
+    return this.http.get<Tema>(`https://magisternetwork.herokuapp.com/tema/${id}`, this.token)
+  }
+
+  postTema(tema: Tema): Observable<Tema> {
     return this.http.post<Tema>('https://magisternetwork.herokuapp.com/tema', tema, this.token)
 
+  }
+
+  putTema(tema: Tema): Observable<Tema> {
+    return this.http.put<Tema>(`https://magisternetwork.herokuapp.com/tema`, tema, this.token)
+  }
+
+  deleteTema(id: number) {
+    return this.http.delete(`https://magisternetwork.herokuapp.com/tema/${id}`, this.token)
   }
 }

@@ -1,0 +1,21 @@
+.btn-azul{
+    background-color: #006BA6;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+    width: 100px;
+}
+.btn-amarelo{
+    background-color: #FF9C05;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+    width: 100px;
+}
+.banner{
+    background-image: url('https://i.imgur.com/memoGWv.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-azul{
+    color:#006BA6 ;
+}
