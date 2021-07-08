@@ -24,8 +24,9 @@ export class TemaComponent implements OnInit {
       this.router.navigate(['/login'])
     }
 
-    this.findAllTemas()
+    /* refresh sempre antes */
     this.temaService.refreshToken()
+    this.findAllTemas()
   }
 
   cadastrar(){
