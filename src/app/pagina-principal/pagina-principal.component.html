@@ -79,6 +79,14 @@
           <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel"
             aria-labelledby="nav-todasPostagens-tab">
 
+            <div class="row d-flex justify-content-center mt-5 mb-5">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="titulo" placeholder="Digite um título de uma postagem para pesquisar" [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()' width="100%">
+                </div>
+              </div>
+            </div>
+
             <div class="card-columns">
                 
               <div class="card-centro mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
