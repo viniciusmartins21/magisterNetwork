@@ -27,9 +27,14 @@ export class PaginaPrincipalComponent implements OnInit {
   user: User = new User()
   idUser = environment.id
 
+
   foto = environment.foto
   nome = environment.nome
   email = environment.email
+
+  
+  key = 'data'
+  reverse = true
 
 
   constructor(
@@ -40,7 +45,7 @@ export class PaginaPrincipalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    window.scroll(0,0)
     if (environment.token == '') {
       this.router.navigate(['/login'])
     }
@@ -50,6 +55,10 @@ export class PaginaPrincipalComponent implements OnInit {
     this.temaService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
+
+
+
+    this.findAllTemas()
 
   }
 
@@ -65,14 +74,20 @@ export class PaginaPrincipalComponent implements OnInit {
     })
   }
 
-  findByIdUser(){
+  findByIdUser() {
     this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
       this.user = resp
     })
   }
-  getAllPostagens(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) =>{
+  getAllPostagens() {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
+    })
+  }
+
+  findAllTemas(){
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
+      this.listaTemas = resp
     })
   }
 

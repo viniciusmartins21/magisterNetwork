@@ -8,7 +8,7 @@
     <div class="col-md-6 d-flex justify-content-between">
       <button class="btn btn-azul text-light " data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
         Postagem</button>
-      <button class="btn btn-azul text-light">Editar Postagem</button>
+      <button class="btn btn-azul text-light" routerLink='/tema'>Adicionar Tema</button>
       <button class="btn btn-azul text-light">Ordenar</button>
     </div>
     <div class="col-md-3"></div>
@@ -34,9 +34,13 @@
 
       </div>
       <div class="row d-flex justify-content-center mt-3">
-        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex">
+
+        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex" 
+        [routerLink]="['/user-edit', idUser]">
           <i class="fa fa-pencil-square-o" aria-hidden="true"> </i>
           <p class="text-white text-center mt-3 ">Editar Perfil</p>
+
+          
         </button>
       </div>
     </div>
@@ -56,61 +60,145 @@
 
             <button (click)='findByIdUser()' class="nav-link text-secondary fw-bold" id="nav-minhasPostagens-tab"
               data-bs-toggle="tab" data-bs-target="#nav-minhasPostagens" type="button" role="tab"
-              aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</button>
+              aria-controls="nav-minhasPostagens" aria-selected="false">
+              Minhas Postagens
+            </button>
 
             <button class="nav-link text-secondary fw-bold" id="nav-postagemTema-tab" data-bs-toggle="tab"
               data-bs-target="#nav-postagemTema" type="button" role="tab" aria-controls="nav-postagemTema"
-              aria-selected="false">Postagem por tema
+              aria-selected="false">
+              Postagem por tema
             </button>
 
           </div>
         </nav>
 
+        <!--TODAS AS POSTAGENS-->
         <div class="tab-content" id="nav-tabContent">
 
           <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel"
             aria-labelledby="nav-todasPostagens-tab">
 
             <div class="card-columns">
-              <div class="card text-center mt-5" *ngFor='let item of listaPostagens'>
-                <div class="card-body">
-                  <h5 class="card-title m-0">{{item.titulo}}</h5>
-                  <small class="text-muted"> Tema: {{item.tema.disciplinaTema}}</small>
-                  <p class="card-text mt-3">{{item.descricao}}</p>
-                  <p class="card-text"><small class="text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
-                      {{item.dataPostagem | date: 'HH:mm'}}</small></p>
-                  <p class="card-text"><small class="text-muted">
-                      by: {{item.usuario.nome}}
-                    </small></p>
+                
+              <div class="card-centro mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
+             
+                <div class="row col-md-6">
+
+                    <div class="col-md-2">
+                    </div>
+
+                    <div class="col-md-3">
+                        <img src="{{item.usuario.foto}}" alt="imagem user" width="70px" height="70px"
+                         class=" rounded-circle mt-4">
+                    </div>
+
+                    <div class="col-md-6 card-body pt-4">
+                        <h5 class="tx"><b>{{item.usuario.nome}}</b></h5>
+                        <h5 class="tx">Tema: {{item.tema.disciplinaTema}}</h5>
+                        <h5 class="tx text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
+                            {{item.dataPostagem | date: 'HH:mm'}}</h5>
+                    </div>
+
                 </div>
+
+                <div class="card-body text-center bg-light me-3 ms-3">
+
+                  <h4 class="card-title mt-4 mb-2"><b>{{item.titulo}}</b></h4>
+                  <img src="{{item.midia}}" width="100%" height="300px">
+                  <p class="card-text mt-4 mb-4">{{item.descricao}}</p>
+
+                </div>
+
+                <div class="d-flex col-md-12 d-flex justify-content-center">
+
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-commenting" aria-hidden="true"></i> 
+                    </a>
+              
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-share" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+
               </div>
+
+              
             </div>
 
-          </div>
+        </div>
+        <!--TODAS AS POSTAGENS-->
+
+        <!--MINHAS POSTAGENS-->
           <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
 
             <div class="card-columns">
-              <div class="card text-center mt-5" *ngFor='let item of user.postagem'>
-                <div class="card-body">
-                  <h5 class="card-title m-0">{{item.titulo}}</h5>
-                  <small class="text-muted"> Tema: {{item.tema.disciplinaTema}}</small>
-                  <p class="card-text mt-3">{{item.descricao}}</p>
-                  <p class="card-text"><small class="text-muted">
-                      {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
-                    </small></p>
-                  <a [routerLink]="['/postagem-edit', item.id]" class="text-dark me-3" href="">Editar</a>
-                  <a [routerLink]="['/postagem-delete', item.id]" class="text-danger me-3" href="">Apagar</a>
+
+              <div class="card-centro mt-5" *ngFor='let item of user.postagem | orderBy : key : reverse'>
+                
+                <div class="row col-md-12">
+
+                    <div class="col-md-1">
+                    </div>
+ 
+                    <div class="col-md-7 card-body pt-5">
+                        <h5 class="tx">Tema: {{item.tema.disciplinaTema}}</h5>
+                        <h5 class="tx text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
+                            {{item.dataPostagem | date: 'HH:mm'}}</h5>
+                    </div>
+                    <div class="col-md-4 pt-5 d-flex justify-content-center">
+                        <a [routerLink]="['/postagem-edit', item.id]" class="ms-5" href="">
+                            <i class="fa fa-pencil text-primary" aria-hidden="true"></i>
+                        </a>
+                        <a [routerLink]="['/postagem-delete', item.id]" href="">
+                            <i class="fa fa-trash-o text-danger" aria-hidden="true"></i>
+                        </a>
+                    </div>
 
                 </div>
-              </div>
-            </div>
 
+                <div class="card-body text-center bg-light me-3 ms-3">
+
+                  <h4 class="card-title mt-4 mb-2"><b>{{item.titulo}}</b></h4>
+                  <img src="{{item.midia}}" width="100%" height="300px">
+                  <p class="card-text mt-4 mb-4">{{item.descricao}}</p>
+
+                </div>
+
+                <div class="d-flex col-md-12 d-flex justify-content-center">
+
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-commenting" aria-hidden="true"></i> 
+                    </a>
+              
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-share" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+
+              </div>
+
+            </div>
           </div>
+          <!--MINHAS POSTAGENS-->
+
+          <!--POSTAGEM POR TEMA-->
           <div class="tab-pane fade" id="nav-postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
 
-            <div class="card-columns" *ngFor='let tema of listaTemas'>
-              <div class="card text-center mt-5" *ngFor='let item of tema.postagem'>
-                <div class="card-body">
+            <div class="card-columns" *ngFor='let tema of listaTemas | orderBy : key : reverse'>
+              <div class="card-centro mt-5" *ngFor='let item of tema.postagem'>
+                
+                <!-- <div class="card-body">
                   <h5 class="card-title m-0">{{item.titulo}}</h5>
                   <p class="card-text mt-3">{{item.descricao}}</p>
                   <p class="card-text"><small class="text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
@@ -119,59 +207,67 @@
                       by: {{item.usuario.nome}}
                     </small></p>
 
+                </div> -->
+
+
+                <div class="row col-md-6">
+
+                    <div class="col-md-2">
+                    </div>
+
+                    <div class="col-md-3 mb-4">
+                        <img src="{{item.usuario.foto}}" alt="imagem user" width="70px" height="70px"
+                         class=" rounded-circle mt-4">
+                    </div>
+
+
+
+                    <div class="col-md-6 card-body pt-4">
+                        <h5 class="tx txtNome"><b>{{item.usuario.nome}}</b></h5>
+                        <h5 class="tx text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
+                            {{item.dataPostagem | date: 'HH:mm'}}</h5>
+                    </div>
+
+
                 </div>
+
+                <div class="card-body text-center bg-light me-3 ms-3">
+
+                  <h4 class="card-title mt-4 mb-2"><b>{{item.titulo}}</b></h4>
+                  <img src="{{item.midia}}" width="100%" height="300px">
+                  <p class="card-text mt-4 mb-4">{{item.descricao}}</p>
+
+                </div>
+
+                <div class="d-flex col-md-12 d-flex justify-content-center">
+
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-commenting" aria-hidden="true"></i> 
+                    </a>
+              
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-share" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+
+
+
               </div>
+
             </div>
 
           </div>
+          <!--POSTAGEM POR TEMA-->
         </div>
       </div>
 
 
     </div>
-
-
-    <!--  <div class="col-md-6 align-items-center bg-light">
-
-                <div class="row centro h-100 p-4">
-
-                    <div class="row col-md-5">
-                        <div class="col-md-4">
-                            <img src="https://i.imgur.com/t5MZZTy.png" class="card-img-top img-fluid tam2" style="border-radius: 50%;">
-                        </div>
-                        <div class="col-md-8 card-body">
-                            <h5 class="tx-esq"><b>Vinicius Martins</b></h5>
-                            <h5 class="tx-esq">Devenvolvedor Full Stack</h5>
-                        </div>
-                    </div>
-
-                    <div class="bg-light" style="border-radius: 30px;" >
-                        <h2 class="text-center mt-5 mb-4">Melhores livros de biologia para crianças</h2>
-                        <img class="img-fluid" src="https://i.imgur.com/r0NDfXY.jpg" width="100%">
-                        <p class="text-justify m-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt architecto maxime neque, at nesciunt error eos reiciendis fugiat! Quae illum, officia praesentium quam autem dolore optio reiciendis repudiandae repellat aliquid eveniet nostrum voluptatibus qui consequuntur soluta quidem totam, ex harum voluptates iusto doloremque similique. Officiis sit enim doloremque expedita ducimus?
-                        </p>
-                    </div>
-
-                    <div class="d-flex col-md-12 d-flex justify-content-center">
-                        <a href="" target="_blank" class="p-3">
-                          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                        </a>
-
-                        <a href="" target="_blank" class="p-3">
-                          <i class="fa fa-commenting" aria-hidden="true"></i>
-                        </a>
-
-                        <a href="" target="_blank" class="p-3">
-                          <i class="fa fa-share" aria-hidden="true"></i>
-                        </a>
-                  </div>
-
-
-                </div>
-
-            </div> -->
-
 
     <!--/Corpo CENTRO-->
 
@@ -179,94 +275,22 @@
 
     <div class="col-md-3 padding">
       <div class="row align-items-start d-flex justify-content-center">
-        <div class="card">
-          <div class="row p-3 pt-5 pb-4 text-center">
-            <p>Adicionar mais amigos</p>
-          </div>
+        <div class="card pt-3">
+          
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Temas já cadastrados</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let tema of listaTemas'>
+                <td>{{tema.disciplinaTema}}</td>
+              </tr>
+            </tbody>
+          </table>
 
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://i.imgur.com/t5MZZTy.png" class="card-img-top img-fluid tam2"
-                style="border-radius: 50%;">
-            </div>
-            <div class="col-md-8 card-body">
-              <h5 class="tx-esq"><b>Vinicius Martins</b></h5>
-              <h5 class="tx-esq">Professor chavier</h5>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://i.imgur.com/t5MZZTy.png" class="card-img-top img-fluid tam2"
-                style="border-radius: 50%;">
-            </div>
-            <div class="col-md-8 card-body">
-              <h5 class="tx-esq"><b>Vinicius Martins</b></h5>
-              <h5 class="tx-esq">Devenvolvedor Full Stack</h5>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://i.imgur.com/t5MZZTy.png" class="card-img-top img-fluid tam2"
-                style="border-radius: 50%;">
-            </div>
-            <div class="col-md-8 card-body">
-              <h5 class="tx-esq"><b>Vinicius Martins</b></h5>
-              <h5 class="tx-esq">Devenvolvedor Full Stack</h5>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://i.imgur.com/t5MZZTy.png" class="card-img-top img-fluid tam2"
-                style="border-radius: 50%;">
-            </div>
-            <div class="col-md-8 card-body">
-              <h5 class="tx-esq"><b>Vinicius Martins</b></h5>
-              <h5 class="tx-esq">Devenvolvedor Full Stack</h5>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://i.imgur.com/t5MZZTy.png" class="card-img-top img-fluid tam2"
-                style="border-radius: 50%;">
-            </div>
-            <div class="col-md-8 card-body">
-              <h5 class="tx-esq"><b>Vinicius Martins</b></h5>
-              <h5 class="tx-esq">Devenvolvedor Full Stack</h5>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://i.imgur.com/t5MZZTy.png" class="card-img-top img-fluid tam2"
-                style="border-radius: 50%;">
-            </div>
-            <div class="col-md-8 card-body">
-              <h5 class="tx-esq"><b>Vinicius Martins</b></h5>
-              <h5 class="tx-esq">Devenvolvedor Full Stack</h5>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <img src="https://i.imgur.com/t5MZZTy.png" class="card-img-top img-fluid tam2"
-                style="border-radius: 50%;">
-            </div>
-            <div class="col-md-8 card-body">
-              <h5 class="tx-esq"><b>Vinicius Martins</b></h5>
-              <h5 class="tx-esq">Devenvolvedor Full Stack</h5>
-
-            </div>
-          </div>
+          
 
         </div>
 
@@ -277,7 +301,7 @@
 
 </div>
 
-<!-- Modal -->
+<!-- Modal Nova Postagem -->
 
 <div class="modal fade" id="novaPostagem" tabindex="-1" aria-labelledby="novaPostagem" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -317,11 +341,11 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-success" (click)='publicar()' data-bs-dismiss="modal">Publicar</button>
+        <button type="button" class="btn btn-amarelo" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-azul2" (click)='publicar()' data-bs-dismiss="modal">Publicar</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Nova Postagem -->
