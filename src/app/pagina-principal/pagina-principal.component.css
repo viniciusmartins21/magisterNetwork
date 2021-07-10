@@ -35,11 +35,11 @@
 }
 
 
-.fa{
+/* .fa{
     font-size: 25pt;
     padding: 10px;
     color:rgb(255, 255, 255);
-}
+} */
 
 /* Postagens: */
 .card-centro{
@@ -71,6 +71,12 @@
     font-size: 20pt;
     padding: 10px;
     color:black;
+}
+
+#fa {
+  font-size: 25pt;
+    padding: 10px;
+    color:rgb(255, 255, 255);
 }
 
 .txtNome {
@@ -110,7 +116,7 @@
 /*lista Temas:*/
 
 .tam2{
-    
+
     height: 70px;
     width: 70px;
 

@@ -9,7 +9,7 @@
       <button class="btn btn-azul text-light " data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
         Postagem</button>
       <button class="btn btn-azul text-light" routerLink='/tema'>Adicionar Tema</button>
-      <button class="btn btn-azul text-light">Ordenar</button>
+      <button class="btn btn-azul text-light"> Ordenar </button>
     </div>
     <div class="col-md-3"></div>
   </div>
@@ -27,7 +27,7 @@
           <div class="card-body">
             <h5 class="card-title text-center mb-2"> {{nome}} </h5>
 
-            <p class="d-flex justify-content-center">{{email}} </p>
+            <p class="d-flex justify-content-center"> {{email}} </p>
 
           </div>
         </div>
@@ -35,12 +35,12 @@
       </div>
       <div class="row d-flex justify-content-center mt-3">
 
-        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex" 
+        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex "
         [routerLink]="['/user-edit', idUser]">
-          <i class="fa fa-pencil-square-o" aria-hidden="true"> </i>
+          <i class="fa fa-pencil-square-o" id="fa" aria-hidden="true"> </i>
           <p class="text-white text-center mt-3 ">Editar Perfil</p>
 
-          
+
         </button>
       </div>
     </div>
@@ -80,9 +80,9 @@
             aria-labelledby="nav-todasPostagens-tab">
 
             <div class="card-columns">
-                
+
               <div class="card-centro mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
-             
+
                 <div class="row col-md-6">
 
                     <div class="col-md-2">
@@ -117,9 +117,9 @@
                     </a>
 
                     <a href="" target="_blank" class="p-3">
-                      <i class="fa fa-commenting" aria-hidden="true"></i> 
+                      <i class="fa fa-commenting" aria-hidden="true"></i>
                     </a>
-              
+
                     <a href="" target="_blank" class="p-3">
                       <i class="fa fa-share" aria-hidden="true"></i>
                     </a>
@@ -128,7 +128,7 @@
 
               </div>
 
-              
+
             </div>
 
         </div>
@@ -140,12 +140,12 @@
             <div class="card-columns">
 
               <div class="card-centro mt-5" *ngFor='let item of user.postagem | orderBy : key : reverse'>
-                
+
                 <div class="row col-md-12">
 
                     <div class="col-md-1">
                     </div>
- 
+
                     <div class="col-md-7 card-body pt-5">
                         <h5 class="tx">Tema: {{item.tema.disciplinaTema}}</h5>
                         <h5 class="tx text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
@@ -177,9 +177,9 @@
                     </a>
 
                     <a href="" target="_blank" class="p-3">
-                      <i class="fa fa-commenting" aria-hidden="true"></i> 
+                      <i class="fa fa-commenting" aria-hidden="true"></i>
                     </a>
-              
+
                     <a href="" target="_blank" class="p-3">
                       <i class="fa fa-share" aria-hidden="true"></i>
                     </a>
@@ -197,7 +197,7 @@
 
             <div class="card-columns" *ngFor='let tema of listaTemas | orderBy : key : reverse'>
               <div class="card-centro mt-5" *ngFor='let item of tema.postagem'>
-                
+
                 <!-- <div class="card-body">
                   <h5 class="card-title m-0">{{item.titulo}}</h5>
                   <p class="card-text mt-3">{{item.descricao}}</p>
@@ -246,9 +246,9 @@
                     </a>
 
                     <a href="" target="_blank" class="p-3">
-                      <i class="fa fa-commenting" aria-hidden="true"></i> 
+                      <i class="fa fa-commenting" aria-hidden="true"></i>
                     </a>
-              
+
                     <a href="" target="_blank" class="p-3">
                       <i class="fa fa-share" aria-hidden="true"></i>
                     </a>
@@ -276,7 +276,7 @@
     <div class="col-md-3 padding">
       <div class="row align-items-start d-flex justify-content-center">
         <div class="card pt-3">
-          
+
           <table class="table table-hover">
             <thead>
               <tr>
@@ -290,7 +290,7 @@
             </tbody>
           </table>
 
-          
+
 
         </div>
 
