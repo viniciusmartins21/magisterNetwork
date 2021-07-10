@@ -19,6 +19,10 @@ export class AuthService {
 
   ) { }
 
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+  }
+
   entrar(userLogin: UserLogin): Observable<UserLogin>{
     return this.http.post<UserLogin>('https://magisternetwork.herokuapp.com/usuarios/logar', userLogin)
 
