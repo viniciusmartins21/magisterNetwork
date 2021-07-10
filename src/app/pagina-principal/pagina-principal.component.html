@@ -1,5 +1,7 @@
+<!--CONTEINER GLOBAL-->
 <div class="container-fluid bg-light">
-  <!--MENU-->
+
+  <!--BOTÕES DE MENU - CENTRAL - 1ªLINHA-->
   <div class="row bg-light d-flex align-items-end">
     <div class="col-md-3 d-flex justify-content-center mb-2">
       <img class="img-fluid p-3" src="https://i.imgur.com/9fYXzjA.png
@@ -13,11 +15,12 @@
     </div>
     <div class="col-md-3"></div>
   </div>
-  <!--MENU-->
+  <!--BOTÕES DE MENU - CENTRAL - 1ªLINHA-->
+
+  <!--2ªLINHA - CARDS-CONTAINER(perfil, postagens, lista de temas)-->
   <div class="row mt-1 bg-light">
 
-
-    <!--Card ESQUERDA-->
+    <!--COL - CARD PERFIL - ESQUERDA-->
     <div class="col-md-3 padding">
       <div class="row align-items-start d-flex justify-content-center">
         <div class="card">
@@ -44,11 +47,13 @@
         </button>
       </div>
     </div>
+    <!--COL - CARD PERFIL - ESQUERDA-->
 
-    <!--Corpo CENTRO-->
+    <!--COL - CARDS DE POSTAGENS - CENTRO-->
     <div class="col-md-6">
       <div class="container mb-5 mt-5" id="postagem">
 
+        <!--MENU DE NAVEGAÇÃO POSTAGENS-->
         <nav>
           <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
 
@@ -72,31 +77,39 @@
 
           </div>
         </nav>
+        <!--MENU DE NAVEGAÇÃO POSTAGENS-->
 
-        <!--TODAS AS POSTAGENS-->
+        <!--CONTEUDO DE LINK com MENU DE NAVEGAÇÃO - NAV-CONTENT-->
         <div class="tab-content" id="nav-tabContent">
 
+          <!--CONTEÚDO TODAS AS POSTAGENS-->
           <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel"
             aria-labelledby="nav-todasPostagens-tab">
+
+            <div class="row d-flex justify-content-center mt-5 mb-5">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="titulo" placeholder="Digite um título de uma postagem para pesquisar" [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'>
+                </div>
+              </div>
+            </div>
 
             <div class="card-columns">
                 
               <div class="card-centro mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
              
-                <div class="row col-md-6">
+                <div class="row col-md-12">
 
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                     </div>
-
-                    <div class="col-md-3">
+                    <div class="col-md-1">
                         <img src="{{item.usuario.foto}}" alt="imagem user" width="70px" height="70px"
                          class=" rounded-circle mt-4">
                     </div>
-
-                    <div class="col-md-6 card-body pt-4">
-                        <h5 class="tx"><b>{{item.usuario.nome}}</b></h5>
-                        <h5 class="tx">Tema: {{item.tema.disciplinaTema}}</h5>
-                        <h5 class="tx text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
+                    <div class="col-md-10 card-body pt-4">
+                        <h5 class="tx ms-4"><b>{{item.usuario.nome}}</b></h5>
+                        <h5 class="tx ms-4">Tema: {{item.tema.disciplinaTema}}</h5>
+                        <h5 class="tx text-muted ms-4">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
                             {{item.dataPostagem | date: 'HH:mm'}}</h5>
                     </div>
 
@@ -128,13 +141,12 @@
 
               </div>
 
-              
             </div>
 
-        </div>
-        <!--TODAS AS POSTAGENS-->
+          </div>
+          <!--CONTEÚDO TODAS AS POSTAGENS-->
 
-        <!--MINHAS POSTAGENS-->
+          <!--CONTEÚDO MINHAS POSTAGENS-->
           <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
 
             <div class="card-columns">
@@ -190,41 +202,37 @@
 
             </div>
           </div>
-          <!--MINHAS POSTAGENS-->
+          <!--CONTEÚDO MINHAS POSTAGENS-->
 
-          <!--POSTAGEM POR TEMA-->
+          <!--CONTEÚDO POSTAGEM POR TEMA-->
           <div class="tab-pane fade" id="nav-postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+
+            <div class="row d-flex justify-content-center mt-5 mb-5">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="titulo" placeholder="Digite um tema para pesquisar" [(ngModel)]='nomeTema' (keyup)='findByNomeTema()'>
+                </div>
+              </div>
+            </div>
 
             <div class="card-columns" *ngFor='let tema of listaTemas | orderBy : key : reverse'>
               <div class="card-centro mt-5" *ngFor='let item of tema.postagem'>
                 
-                <!-- <div class="card-body">
-                  <h5 class="card-title m-0">{{item.titulo}}</h5>
-                  <p class="card-text mt-3">{{item.descricao}}</p>
-                  <p class="card-text"><small class="text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
-                      {{item.dataPostagem | date: 'HH:mm'}}</small></p>
-                  <p class="card-text"><small class="text-muted">
-                      by: {{item.usuario.nome}}
-                    </small></p>
+                <div class="row col-md-12">
 
-                </div> -->
-
-
-                <div class="row col-md-6">
-
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                     </div>
 
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-1 mb-4">
                         <img src="{{item.usuario.foto}}" alt="imagem user" width="70px" height="70px"
                          class=" rounded-circle mt-4">
                     </div>
 
 
 
-                    <div class="col-md-6 card-body pt-4">
-                        <h5 class="tx txtNome"><b>{{item.usuario.nome}}</b></h5>
-                        <h5 class="tx text-muted">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
+                    <div class="col-md-10 card-body pt-4">
+                        <h5 class="tx txtNome ms-4"><b>{{item.usuario.nome}}</b></h5>
+                        <h5 class="tx text-muted ms-4">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
                             {{item.dataPostagem | date: 'HH:mm'}}</h5>
                     </div>
 
@@ -262,17 +270,16 @@
             </div>
 
           </div>
-          <!--POSTAGEM POR TEMA-->
+          <!--CONTEÚDO POSTAGEM POR TEMA-->
+
         </div>
+        <!--CONTEUDO DE LINK com MENU DE NAVEGAÇÃO - NAV-CONTENT-->
+
       </div>
-
-
     </div>
+    <!--COL - CARDS DE POSTAGENS - CENTRO-->
 
-    <!--/Corpo CENTRO-->
-
-    <!--Amigos DIREITA-->
-
+    <!--COL - CARD LISTA DE TEMAS - DIREITA-->
     <div class="col-md-3 padding">
       <div class="row align-items-start d-flex justify-content-center">
         <div class="card pt-3">
@@ -290,19 +297,19 @@
             </tbody>
           </table>
 
-          
-
         </div>
 
       </div>
     </div>
+    <!--COL - CARD LISTA DE TEMAS - DIREITA-->
 
   </div>
+  <!--2ªLINHA - CARDS-CONTAINER(perfil, postagens, lista de temas)-->
 
 </div>
+<!--FIM DO CONTEINER GLOBAL-->
 
-<!-- Modal Nova Postagem -->
-
+<!-- MODAL NOVA POSTAGEM -->
 <div class="modal fade" id="novaPostagem" tabindex="-1" aria-labelledby="novaPostagem" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -347,5 +354,4 @@
     </div>
   </div>
 </div>
-
-<!-- Modal Nova Postagem -->
+<!-- MODAL NOVA POSTAGEM -->
