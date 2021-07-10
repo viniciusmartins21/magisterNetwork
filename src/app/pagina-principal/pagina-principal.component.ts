@@ -1,6 +1,6 @@
+import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { User } from '../model/User';
@@ -15,6 +15,8 @@ import { TemaService } from '../service/tema.service';
 })
 export class PaginaPrincipalComponent implements OnInit {
 
+
+
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
 
@@ -25,8 +27,15 @@ export class PaginaPrincipalComponent implements OnInit {
   user: User = new User()
   idUser = environment.id
 
+
+  foto = environment.foto
+  nome = environment.nome
+  email = environment.email
+
+  
   key = 'data'
   reverse = true
+
 
   constructor(
     private router: Router,
@@ -46,7 +55,11 @@ export class PaginaPrincipalComponent implements OnInit {
     this.temaService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
+
+
+
     this.findAllTemas()
+
   }
 
   getAllTemas() {
