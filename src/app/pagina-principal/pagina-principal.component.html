@@ -16,38 +16,27 @@
   <!--MENU-->
   <div class="row mt-1 bg-light">
 
-    <!--Card ESQUERDA-->
 
+    <!--Card ESQUERDA-->
     <div class="col-md-3 padding">
       <div class="row align-items-start d-flex justify-content-center">
         <div class="card">
           <div class="row mt-3">
-            <img src="https://i.imgur.com/jVFmnOS.png
-                        " class="card-img-top img-fluid tam" alt="..." style="border-radius: 50%;">
+            <img src="{{foto}}" class="card-img-top img-fluid tam mb-2" alt="..." height="50px" width="50px" style="border-radius: 50%;">
           </div>
           <div class="card-body">
-            <h5 class="card-title text-center">Vinicius Martins</h5>
-            <p class="card-title text-center">Devenvolvedor Full Stack</p>
+            <h5 class="card-title text-center mb-2"> {{nome}} </h5>
 
-            <p class=" d-flex justify-content-center align-items-center">
-              <a href="https://github.com/viniciusmartins21" target="_blank" class="iconGithub">
-                <i class="fa fa-github" aria-hidden="true"></i>
-              </a>
-              200 amigos
-            </p>
-            <p class=" d-flex justify-content-center">
-              <a href="https://www.linkedin.com/in/vinicius-martins-713289125/" target="_blank" class="iconLinkedin">
-                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-              </a>
-            </p>
+            <p class="d-flex justify-content-center">{{email}} </p>
+
           </div>
         </div>
 
       </div>
       <div class="row d-flex justify-content-center mt-3">
-        <button class="btn btn-azul text-light">
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          Editar Perfil
+        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"> </i>
+          <p class="text-white text-center mt-3 ">Editar Perfil</p>
         </button>
       </div>
     </div>
@@ -168,11 +157,11 @@
                         <a href="" target="_blank" class="p-3">
                           <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                         </a>
-                  
+
                         <a href="" target="_blank" class="p-3">
-                          <i class="fa fa-commenting" aria-hidden="true"></i> 
+                          <i class="fa fa-commenting" aria-hidden="true"></i>
                         </a>
-                  
+
                         <a href="" target="_blank" class="p-3">
                           <i class="fa fa-share" aria-hidden="true"></i>
                         </a>

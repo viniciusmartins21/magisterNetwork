@@ -1,24 +1,25 @@
 .btn-azul{
     background-color: #006BA6;
     border-radius: 30px;
-    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
-    font-weight: 500;
+    box-shadow: 0px 4px 7px 0px rgba(51, 39, 39, 0.5);
+    font-weight: 550;
     font-size: 20px;
-    width: 200px;
+    width: 190px;
+    height: 65px;
 }
 
 .fundo-integrantes{
     background-image: url('https://i.imgur.com/memoGWv.jpg');
     min-height: 50px;
     background-position: center;
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
 .fa{
-    font-size: 35pt;
+    font-size: 25pt;
     padding: 10px;
-    color:black;
+    color:rgb(255, 255, 255);
 }
 .fa-linkedin-square:hover{
     color: rgb(12, 146, 199);
@@ -31,7 +32,7 @@
 }
 
 .tam2{
-    
+
     height: 70px;
     width: 70px;
 
@@ -41,9 +42,6 @@
     font-size: 15px;
 }
 
-.fa-github:hover{
-    color: blueviolet;
-}
 
 
 .card{
