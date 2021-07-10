@@ -25,6 +25,9 @@ export class PaginaPrincipalComponent implements OnInit {
   user: User = new User()
   idUser = environment.id
 
+  key = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
@@ -43,7 +46,7 @@ export class PaginaPrincipalComponent implements OnInit {
     this.temaService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
-    
+
   }
 
   getAllTemas() {
@@ -58,13 +61,13 @@ export class PaginaPrincipalComponent implements OnInit {
     })
   }
 
-  findByIdUser(){
+  findByIdUser() {
     this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
       this.user = resp
     })
   }
-  getAllPostagens(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) =>{
+  getAllPostagens() {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
