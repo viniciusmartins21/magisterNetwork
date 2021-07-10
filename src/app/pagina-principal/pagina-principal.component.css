@@ -11,6 +11,29 @@
 }
 
 
+.btn-amarelo{
+    background-color: #FF9C05;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+    color: #ffffff;
+}
+
+.btn-azul2{
+    background-color: #006BA6;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+    color: #ffffff;
+}
+
+.fundo-integrantes{
+    background-image: url('https://i.imgur.com/memoGWv.jpg');
+    min-height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;  
+    background-size: cover;
+}
+
+
 /* Postagens: */
 .card-centro{
     border: none;
