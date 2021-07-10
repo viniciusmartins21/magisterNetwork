@@ -1,3 +1,6 @@
+
+/*Botões Centro:*/
+
 .btn-azul{
     background-color: #006BA6;
     border-radius: 30px;
@@ -7,44 +10,42 @@
     width: 200px;
 }
 
-.fundo-integrantes{
-    background-image: url('https://i.imgur.com/memoGWv.jpg');
-    min-height: 50px;
-    background-position: center;
-    background-repeat: no-repeat;  
-    background-size: cover;
+
+/* Postagens: */
+.card-centro{
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 30px;
+    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
+    font-weight: 500;
+    font-size: 20px;
+    box-sizing: border-box;
+    word-wrap: break-word;
 }
 
-.fa{
-    font-size: 35pt;
-    padding: 10px;
-    color:black;
-}
-.fa-linkedin-square:hover{
-    color: rgb(12, 146, 199);
+.card-body{
+    border-radius: 30px;
 }
 
-.tam{
-    height: 150px;
-    width: 150px;
-    margin: 0 auto;
-}
-
-.tam2{
-    
-    height: 70px;
-    width: 70px;
-
-}
-
-.tx-esq{
+.tx{
     font-size: 15px;
 }
 
-.fa-github:hover{
-    color: blueviolet;
+.fa{
+    font-size: 20pt;
+    padding: 10px;
+    color:black;
 }
 
+.txtNome {
+    padding-top: 15px;
+}
+
+/*Perfil:*/
+
+.padding{
+    padding: 35px 50px;
+}
 
 .card{
     border: none;
@@ -56,12 +57,17 @@
     /*width: 200px;*/
 }
 
-.padding{
-    padding: 35px 50px;
+.tam{
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
 }
 
-.centro{
-    border-radius: 30px;
-    background-color: gray;
-    margin-top: 35px;
+/*lista Temas:*/
+
+.tam2{
+    
+    height: 70px;
+    width: 70px;
+
 }
