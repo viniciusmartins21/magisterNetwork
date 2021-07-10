@@ -43,7 +43,7 @@ export class PaginaPrincipalComponent implements OnInit {
     this.temaService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
-    
+    this.findAllTemas()
   }
 
   getAllTemas() {
@@ -66,6 +66,12 @@ export class PaginaPrincipalComponent implements OnInit {
   getAllPostagens(){
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) =>{
       this.listaPostagens = resp
+    })
+  }
+
+  findAllTemas(){
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
+      this.listaTemas = resp
     })
   }
 
