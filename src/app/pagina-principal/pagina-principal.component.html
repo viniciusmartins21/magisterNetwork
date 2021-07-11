@@ -38,13 +38,14 @@
       </div>
       <div class="row d-flex justify-content-center mt-3">
 
-        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex"
-          [routerLink]="['/user-edit', idUser]">
-          <i class="fa fa-pencil-square-o" aria-hidden="true"> </i>
-          <p class="text-white text-center mt-3 ">Editar Perfil</p>
-
-
-        </button>
+        <!-- <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
+          Postagem</button>
+          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" routerLink='/tema'>Adicionar Tema</button> -->
+          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" 
+            [routerLink]="['/user-edit', idUser]">
+            <i class="fa fa-pencil-square-o" id="fa" aria-hidden="true"> </i>
+            <p class="text-white text-center mt-3 ">Editar Perfil</p>
+          </button>
       </div>
     </div>
     <!--COL - CARD PERFIL - ESQUERDA-->
