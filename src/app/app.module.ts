@@ -69,7 +69,6 @@ import { AlertasComponent } from './alertas/alertas.component';
     ModalModule.forRoot()
   ],
 
-
   providers: [],
   bootstrap: [AppComponent]
 })
