@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center mt-5">Atulizar Tema</h1>
+                <h1 class="text-center mt-3">Atulizar Tema</h1>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
@@ -11,10 +11,16 @@
                     <label for="descricaoTema">Descrição</label>
                     <input type="text" class="form-control" id="decricao" [(ngModel)]='tema.disciplinaTema'>
                 </div>
-                <div class="d-flex justify-content-center mt-2 mb-5">
+                <div class="d-flex justify-content-center mt-3 mb-2">
                     <button class="btn btn-amarelo text-white me-4" routerLink='/tema'>Cancelar</button>
-                    <button class="btn btn-azul text-white" (click)='atualizar()'>Atulizar</button>
+                    <button class="btn btn-azul text-white" 
+                    (click)='atualizar()'>Atulizar</button>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <img src="https://i.imgur.com/4PRh23F.png" width="400px" alt="">
             </div>
         </div>
     </div>

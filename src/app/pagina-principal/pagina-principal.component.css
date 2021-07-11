@@ -95,11 +95,6 @@
 }
 
 
-
-.padding{
-    padding: 35px 50px;
-}
-
 .tam{
     height: 150px;
     width: 150px;
@@ -114,4 +109,10 @@
     height: 70px;
     width: 70px;
 
+}
+
+.img-perfil{
+    border-radius:50%;
+    width: 170px;
+    
 }
