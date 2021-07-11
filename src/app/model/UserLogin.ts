@@ -7,4 +7,5 @@ export class UserLogin {
     public tipo: string
     public senha: string
     public token: string
+    public profissao: string
 }
