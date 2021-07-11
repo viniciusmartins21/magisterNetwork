@@ -2,7 +2,7 @@
 <div class="container-fluid bg-light">
 
   <!--BOTÕES DE MENU - CENTRAL - 1ªLINHA-->
-  <div class="row bg-light d-flex align-items-end">
+  <!-- <div class="row bg-light d-flex align-items-end">
     <div class="col-md-3 d-flex justify-content-center mb-2">
       <img class="img-fluid p-3" src="https://i.imgur.com/9fYXzjA.png
             " alt="" height="250px" width="250px">
@@ -13,7 +13,7 @@
       <button class="btn btn-azul text-light" routerLink='/tema'>Adicionar Tema</button>
     </div>
     <div class="col-md-3"></div>
-  </div>
+  </div> -->
   <!--BOTÕES DE MENU - CENTRAL - 1ªLINHA-->
 
   <!--2ªLINHA - CARDS-CONTAINER(perfil, postagens, lista de temas)-->
@@ -22,6 +22,11 @@
 
     <!--Card ESQUERDA-->
     <div class="col padding">
+      
+        <div class=" d-flex justify-content-center mb-4 mt-4" id="logo-principal">
+          <img class="img-fluid p-3" src="https://i.imgur.com/9fYXzjA.png
+                " alt="" height="250px" width="250px">
+        </div>
       <div class="row  d-flex justify-content-center">
         <div class="card">
           <div class="row mt-3">
@@ -38,9 +43,9 @@
       </div>
       <div class="row d-flex justify-content-center mt-3">
 
-        <!-- <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
+        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-3" data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
           Postagem</button>
-          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" routerLink='/tema'>Adicionar Tema</button> -->
+          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" routerLink='/tema'>Adicionar Tema</button>
           <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" 
             [routerLink]="['/user-edit', idUser]">
             <i class="fa fa-pencil-square-o" id="fa" aria-hidden="true"> </i>
@@ -52,7 +57,7 @@
 
     <!--COL - CARDS DE POSTAGENS - CENTRO-->
     <div class="col-md-6">
-      <div class="container mb-5 mt-5" id="postagem">
+      <div class="container mb-5 mt-5 pt-5" id="postagem">
 
         <!--MENU DE NAVEGAÇÃO POSTAGENS-->
         <nav>
@@ -284,7 +289,8 @@
     <!--COL - CARDS DE POSTAGENS - CENTRO-->
 
     <!--COL - CARD LISTA DE TEMAS - DIREITA-->
-    <div class="col-md-3 padding">
+    <div class="col-md-3 padding mt-5 pt-5">
+      
       <div class="row align-items-start d-flex justify-content-center">
         <div class="card pt-3">
 
