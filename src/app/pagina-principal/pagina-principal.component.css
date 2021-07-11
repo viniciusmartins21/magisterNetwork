@@ -7,7 +7,7 @@
     font-weight: 550;
     font-size: 20px;
     width: 190px;
-    height: 65px;
+    height: 45px;
 }
 
 .btn-amarelo {
@@ -69,6 +69,11 @@
     padding: 10px;
     color: black;
 }
+#fa{
+    font-size: 20pt;
+    padding: 10px;
+    color:rgb(255, 255, 255);
+}
 
 .txtNome {
     padding-top: 15px;
@@ -90,11 +95,13 @@
     /*width: 200px;*/
 }
 
+
 .padding {
     padding: 35px 50px;
 }
 
-.tam {
+.tam{
+
     height: 150px;
     width: 150px;
     margin: 0 auto;
@@ -113,4 +120,10 @@
 
 .bg-nav:hover{
     background-color: #006BA6;
+}
+
+.img-perfil{
+    border-radius:50%;
+    width: 170px;
+    
 }
