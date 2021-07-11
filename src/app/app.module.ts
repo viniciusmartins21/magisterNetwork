@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,8 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
+import { AlertasComponent } from './alertas/alertas.component';
+
 
 
 
@@ -50,7 +53,8 @@ import { UserEditComponent } from './edit/user-edit/user-edit.component';
     TemaDeleteComponent,
     PostagemEditComponent,
     PostagemDeleteComponent,
-    UserEditComponent
+    UserEditComponent,
+    AlertasComponent
   ],
 
 
@@ -62,6 +66,7 @@ import { UserEditComponent } from './edit/user-edit/user-edit.component';
     HttpClientModule,
     FormsModule,
     OrderModule,
+    ModalModule.forRoot()
   ],
 
   providers: [],

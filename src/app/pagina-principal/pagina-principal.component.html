@@ -11,6 +11,9 @@
       <button class="btn btn-azul text-light me-5" data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
         Postagem</button>
       <button class="btn btn-azul text-light" routerLink='/tema'>Adicionar Tema</button>
+
+      <button class="btn btn-azul text-light"> Ordenar </button>
+
     </div>
     <div class="col-md-3"></div>
   </div>
@@ -30,7 +33,11 @@
           <div class="card-body">
             <h5 class="card-title text-center mb-2"> {{nome}} </h5>
 
+
+            <p class="d-flex justify-content-center"> {{email}} </p>
+
             <p class="card-title text-center mb-2">Leciona: {{profissao}}</p>
+
 
           </div>
         </div>
@@ -38,9 +45,11 @@
       </div>
       <div class="row d-flex justify-content-center mt-3">
 
-        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex"
-          [routerLink]="['/user-edit', idUser]">
-          <i class="fa fa-pencil-square-o" aria-hidden="true"> </i>
+
+        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex "
+        [routerLink]="['/user-edit', idUser]">
+          <i class="fa fa-pencil-square-o" id="fa" aria-hidden="true"> </i>
+
           <p class="text-white text-center mt-3 ">Editar Perfil</p>
 
 
@@ -98,6 +107,12 @@
 
             <div class="card-columns">
 
+
+              <div class="card-centro mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
+
+                <div class="row col-md-6">
+
+
               <div class="card-centro mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
 
                 <div class="row col-md-12">
@@ -131,6 +146,15 @@
                     <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                   </a>
 
+
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-commenting" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="" target="_blank" class="p-3">
+                      <i class="fa fa-share" aria-hidden="true"></i>
+                    </a>
+
                   <a href="" target="_blank" class="p-3">
                     <i class="fa fa-commenting" aria-hidden="true"></i>
                   </a>
@@ -138,6 +162,7 @@
                   <a href="" target="_blank" class="p-3">
                     <i class="fa fa-share" aria-hidden="true"></i>
                   </a>
+
 
                 </div>
 
@@ -157,6 +182,7 @@
 
                 <div class="row col-md-12">
 
+
                   <div class="col-md-1">
                   </div>
 
@@ -174,6 +200,7 @@
                     </a>
                   </div>
 
+
                 </div>
 
                 <div class="card-body text-center bg-light me-3 ms-3">
@@ -190,6 +217,7 @@
                     <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                   </a>
 
+
                   <a href="" target="_blank" class="p-3">
                     <i class="fa fa-commenting" aria-hidden="true"></i>
                   </a>
@@ -197,6 +225,7 @@
                   <a href="" target="_blank" class="p-3">
                     <i class="fa fa-share" aria-hidden="true"></i>
                   </a>
+
 
                 </div>
 
@@ -256,6 +285,7 @@
                     <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                   </a>
 
+
                   <a href="" target="_blank" class="p-3">
                     <i class="fa fa-commenting" aria-hidden="true"></i>
                   </a>
@@ -263,6 +293,7 @@
                   <a href="" target="_blank" class="p-3">
                     <i class="fa fa-share" aria-hidden="true"></i>
                   </a>
+
 
                 </div>
 
@@ -299,6 +330,7 @@
               </tr>
             </tbody>
           </table>
+
 
         </div>
 
