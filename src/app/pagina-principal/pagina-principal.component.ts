@@ -1,4 +1,3 @@
-import { AlertasService } from './../service/alertas.service';
 import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -40,8 +39,7 @@ export class PaginaPrincipalComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService,
-    private alertas: AlertasService
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -100,7 +98,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
+      alert('Postagem realizada com sucesso!')
       this.postagem = new Postagem
       this.getAllPostagens()
     })
