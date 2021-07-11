@@ -8,5 +8,6 @@ export class User {
     public foto: string
     public tipo: string
     public senha: string
+    public profissao: string
     public postagem: Postagem[]
 }

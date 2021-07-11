@@ -64,7 +64,6 @@ import { UserEditComponent } from './edit/user-edit/user-edit.component';
     OrderModule,
   ],
 
-  
   providers: [],
   bootstrap: [AppComponent]
 })

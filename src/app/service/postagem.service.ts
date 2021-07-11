@@ -27,6 +27,10 @@ export class PostagemService {
     return this.http.get<Postagem>(`https://magisternetwork.herokuapp.com/postagem/${id}`, this.token)
   }
 
+  getByTituloPostagem(titulo: string): Observable<Postagem[]>{
+    return this.http.get<Postagem[]>(`https://magisternetwork.herokuapp.com/postagem/titulo/${titulo}`, this.token)
+  }
+
   getAllPostagens(): Observable<Postagem[]>{
     return this.http.get<Postagem[]>('https://magisternetwork.herokuapp.com/postagem', this.token)
 
@@ -43,10 +47,5 @@ export class PostagemService {
   deletePostagem(id: number){
     return this.http.delete(`https://magisternetwork.herokuapp.com/postagem/${id}`, this.token)
   }
-
-  /*solução minhas postagens (this.token)
-  getByIdUser(id: number): Observable<User>{
-    return this.http.get<User>(`https://magisternetwork.herokuapp.com/usuarios/${id}`, this.token)
-  }
-  solução minhas postagens (this.token)*/
+  
 }
