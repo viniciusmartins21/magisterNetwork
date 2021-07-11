@@ -8,7 +8,7 @@
     font-weight: 550;
     font-size: 20px;
     width: 190px;
-    height: 65px;
+    height: 45px;
 }
 
 
@@ -71,6 +71,11 @@
     font-size: 20pt;
     padding: 10px;
     color:black;
+}
+#fa{
+    font-size: 20pt;
+    padding: 10px;
+    color:rgb(255, 255, 255);
 }
 
 .txtNome {
