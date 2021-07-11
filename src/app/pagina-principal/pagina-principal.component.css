@@ -1,7 +1,6 @@
-
 /*Botões Centro:*/
 
-.btn-azul{
+.btn-azul {
     background-color: #006BA6;
     border-radius: 30px;
     box-shadow: 0px 4px 7px 0px rgba(51, 39, 39, 0.5);
@@ -11,22 +10,21 @@
     height: 65px;
 }
 
-
-.btn-amarelo{
+.btn-amarelo {
     background-color: #FF9C05;
     border-radius: 30px;
     box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
     color: #ffffff;
 }
 
-.btn-azul2{
+.btn-azul2 {
     background-color: #006BA6;
     border-radius: 30px;
     box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
     color: #ffffff;
 }
 
-.fundo-integrantes{
+.fundo-integrantes {
     background-image: url('https://i.imgur.com/memoGWv.jpg');
     min-height: 50px;
     background-position: center;
@@ -34,15 +32,15 @@
     background-size: cover;
 }
 
-
-.fa{
+.fa {
     font-size: 25pt;
     padding: 10px;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 /* Postagens: */
-.card-centro{
+
+.card-centro {
     border: none;
     background-color: #E5E5E5;
     border-radius: 30px;
@@ -53,38 +51,36 @@
     word-wrap: break-word;
 }
 
-
-.tam2{
+.tam2 {
     height: 70px;
     width: 70px;
 }
 
-.card-body{
+.card-body {
     border-radius: 30px;
 }
 
-.tx{
+.tx {
     font-size: 15px;
 }
 
-.fa{
+.fa {
     font-size: 20pt;
     padding: 10px;
-    color:black;
+    color: black;
 }
 
 .txtNome {
     padding-top: 15px;
 }
 
-
 /*Perfil:*/
 
-.padding{
+.padding {
     padding: 35px 50px;
 }
 
-.card{
+.card {
     border: none;
     background-color: #FFBC42;
     border-radius: 30px;
@@ -94,24 +90,27 @@
     /*width: 200px;*/
 }
 
-
-
-.padding{
+.padding {
     padding: 35px 50px;
 }
 
-.tam{
+.tam {
     height: 150px;
     width: 150px;
     margin: 0 auto;
-
 }
 
 /*lista Temas:*/
 
-.tam2{
-    
+.tam2 {
     height: 70px;
     width: 70px;
+}
 
+.bg-nav{
+    background-color: #FF9C05;
+}
+
+.bg-nav:hover{
+    background-color: #006BA6;
 }
