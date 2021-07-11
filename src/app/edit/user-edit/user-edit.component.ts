@@ -22,7 +22,7 @@ export class UserEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
     if (environment.token == '') {
       this.router.navigate(['/login'])
     }
@@ -31,30 +31,31 @@ export class UserEditComponent implements OnInit {
     this.findByIdUser(this.idUser)
   }
 
-  confirmSenha(event: any){
+  confirmSenha(event: any) {
     this.confirmarSenha = event.target.value
   }
 
-  atualizar(){
+  atualizar() {
     if (this.user.senha != this.confirmarSenha) {
-      alert ('As senhas estão incorretas.')
+      alert('As senhas estão incorretas.')
     } else {
-      this.authService.cadastrar(this.user).subscribe((resp: User)=> {
-        this.user = resp 
+      this.authService.cadastrar(this.user).subscribe((resp: User) => {
+        this.user = resp
         this.router.navigate(['/pagina-principal'])
         alert('Usuário atualizado com sucesso!')
-        environment.token=''
-        environment.nome=''
-        environment.foto=''
-        environment.id= 0
+        environment.token = ''
+        environment.nome = ''
+        environment.foto = ''
+        environment.id = 0
+        environment.profissao = ''
         this.router.navigate(['/login'])
       })
     }
 
   }
 
-  findByIdUser(id:number){
-    this.authService.getByIdUser(id).subscribe((resp: User)=>{
+  findByIdUser(id: number) {
+    this.authService.getByIdUser(id).subscribe((resp: User) => {
       this.user = resp
     })
   }
