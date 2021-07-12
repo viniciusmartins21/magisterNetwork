@@ -5,9 +5,11 @@
     border-radius: 30px;
     box-shadow: 0px 4px 7px 0px rgba(51, 39, 39, 0.5);
     font-weight: 550;
-    font-size: 20px;
+    font-size: 17px;
     width: 190px;
     height: 45px;
+    word-wrap: break-word;
+    box-sizing: border-box;
 }
 
 .btn-amarelo {
@@ -39,6 +41,9 @@
 }
 
 /* Postagens: */
+.redondo{
+    border-radius: 50px;
+}
 
 .card-centro {
     border: none;
