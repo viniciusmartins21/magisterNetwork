@@ -43,10 +43,10 @@
       </div>
       <div class="row d-flex justify-content-center mt-3">
 
-        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-3" data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
+        <button class="btn btn-azul text-light justify-content-center align-items-center fw-bold d-flex mt-3" data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
           Postagem</button>
-          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" routerLink='/tema'>Adicionar Tema</button>
-          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" 
+          <button class="btn btn-azul text-light justify-content-center align-items-center fw-bold d-flex mt-2" routerLink='/tema'>Adicionar Tema</button>
+          <button class="btn btn-azul text-light justify-content-center align-items-center fw-bold d-flex mt-2" 
             [routerLink]="['/user-edit', idUser]">
             <i class="fa fa-pencil-square-o" id="fa" aria-hidden="true"> </i>
             <p class="text-white text-center mt-3 ">Editar Perfil</p>
@@ -63,19 +63,19 @@
         <nav>
           <div class="nav nav-pills nav-fill" id="nav-tab" role="tablist">
 
-            <button class="nav-link active text-white fw-bold bg-nav redondo" id="nav-todasPostagens-tab" data-bs-toggle="tab"
+            <button class="nav-link active text-white fw-bold bg-nav redondo btn-azul" id="nav-todasPostagens-tab" data-bs-toggle="tab"
               data-bs-target="#nav-todasPostagens" type="button" role="tab" aria-controls="nav-todasPostagens"
               aria-selected="true">
               Todas as Postagens
             </button>
 
-            <button (click)='findByIdUser()' class="nav-link text-white fw-bold bg-nav me-2 ms-2 redondo" id="nav-minhasPostagens-tab"
+            <button (click)='findByIdUser()' class="nav-link text-white fw-bold bg-nav me-2 ms-2 redondo btn-azul" id="nav-minhasPostagens-tab"
               data-bs-toggle="tab" data-bs-target="#nav-minhasPostagens" type="button" role="tab"
               aria-controls="nav-minhasPostagens" aria-selected="false">
               Minhas Postagens
             </button>
 
-            <button class="nav-link text-white fw-bold bg-nav redondo" id="nav-postagemTema-tab" data-bs-toggle="tab"
+            <button class="nav-link text-white fw-bold bg-nav redondo btn-azul" id="nav-postagemTema-tab" data-bs-toggle="tab"
               data-bs-target="#nav-postagemTema" type="button" role="tab" aria-controls="nav-postagemTema"
               aria-selected="false">
               Postagem por tema
