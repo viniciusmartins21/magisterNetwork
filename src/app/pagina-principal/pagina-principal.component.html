@@ -22,26 +22,30 @@
 
     <!--Card ESQUERDA-->
     <div class="col padding">
-      
-        <div class=" d-flex justify-content-center mb-4 mt-4" id="logo-principal">
-          <img class="img-fluid p-3" src="https://i.imgur.com/9fYXzjA.png
-                " alt="" height="250px" width="250px">
-        </div>
-      <div class="row  d-flex justify-content-center">
-        <div class="card">
-          <div class="row mt-3">
-            <img src="{{foto}}" class="card-img-top img-fluid tam mb-2 img-perfil" alt="..." >
-          </div>
-          <div class="card-body">
-            <h5 class="card-title text-center mb-2"> {{nome}} </h5>
 
-            <p class="card-title text-center mb-2">Leciona: {{profissao}}</p>
+      <div class=" d-flex justify-content-center mb-4 mt-4 me-4" id="logo-principal">
+        <img class="img-fluid p-3" src="https://i.imgur.com/9fYXzjA.png
+                " alt="" height="250px" width="250px">
+      </div>
+      <div class="row  d-flex justify-content-center">
+        <div class="card p-0 pb-0">
+          <div class="bg-capa" style="background-image: url('https://i.imgur.com/IlNMJR3.jpg')">
+            <div class="row " >
+              <img src="{{foto}}" class="card-img-top img-fluid tam mt-3 mb-2 img-perfil" alt="...">
+            </div>
+          </div>
+          <div class="card-body pt-5 mt-3 pb-0">
+            <h5 class="card-title text-center mt-3 mb-2"> {{nome}} </h5>
+
+            <p class="card-title text-center mb-2">{{profissao}}</p>
+            
 
           </div>
         </div>
 
       </div>
       <div class="row d-flex justify-content-center mt-3">
+
 
         <button class="btn btn-azul text-light justify-content-center align-items-center fw-bold d-flex mt-3" data-bs-toggle="modal" data-bs-target="#novaPostagem">Nova
           Postagem</button>
@@ -51,6 +55,7 @@
             <i class="fa fa-pencil-square-o" id="fa" aria-hidden="true"> </i>
             <p class="text-white text-center mt-3 ">Editar Perfil</p>
           </button>
+
       </div>
     </div>
     <!--COL - CARD PERFIL - ESQUERDA-->
@@ -62,6 +67,7 @@
         <!--MENU DE NAVEGAÇÃO POSTAGENS-->
         <nav>
           <div class="nav nav-pills nav-fill" id="nav-tab" role="tablist">
+
 
             <button class="nav-link active text-white fw-bold bg-nav redondo btn-azul" id="nav-todasPostagens-tab" data-bs-toggle="tab"
               data-bs-target="#nav-todasPostagens" type="button" role="tab" aria-controls="nav-todasPostagens"
@@ -76,6 +82,7 @@
             </button>
 
             <button class="nav-link text-white fw-bold bg-nav redondo btn-azul" id="nav-postagemTema-tab" data-bs-toggle="tab"
+
               data-bs-target="#nav-postagemTema" type="button" role="tab" aria-controls="nav-postagemTema"
               aria-selected="false">
               Postagem por tema
@@ -185,6 +192,7 @@
                 <div class="card-body text-center bg-light me-3 ms-3">
 
                   <h4 class="card-title mt-4 mb-2"><b>{{item.titulo}}</b></h4>
+
                   <img src="{{item.midia}}" width="100%" height="300px">
                   <p class="card-text mt-4 mb-4">{{item.descricao}}</p>
 
@@ -290,7 +298,7 @@
 
     <!--COL - CARD LISTA DE TEMAS - DIREITA-->
     <div class="col-md-3 padding mt-5 pt-5">
-      
+
       <div class="row align-items-start d-flex justify-content-center">
         <div class="card pt-3">
 

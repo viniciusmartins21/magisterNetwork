@@ -61,7 +61,7 @@
     width: 70px;
 }
 
-.card-body {
+.card-body .redondo{
     border-radius: 30px;
 }
 
@@ -129,6 +129,31 @@
 
 .img-perfil{
     border-radius:50%;
-    width: 170px;
+    width: 150px;
+    border: solid white 2.2px;
+    
+    padding: 0;
+}
+
+.redondo{
+    border-radius: 50px;
+}
+
+.bg-capa{
+    
+    background-size: cover;
+    padding-top: 0;
+    margin-top: 0;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    height: 100px;
+    /* height: 33%; */
+}
+
+.bg-principal{
+    background-image: url('https://i.imgur.com/memoGWv.jpg');
+    background-size:contain;
+    background-repeat: repeat-y;
     
 }
