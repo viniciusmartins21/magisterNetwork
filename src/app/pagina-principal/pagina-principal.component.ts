@@ -129,4 +129,9 @@ export class PaginaPrincipalComponent implements OnInit {
 
   }
 
+  // getQuadro() {
+  //   return this.postagem.id;
+  //   console.log(this.postagem.id);
+  // }
+
 }
