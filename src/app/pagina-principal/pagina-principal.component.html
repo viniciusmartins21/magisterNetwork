@@ -14,7 +14,6 @@
       </div>
       <div class="row  d-flex justify-content-center">
         <div class="card p-0 pb-0">
-          <!-- https://i.imgur.com/IlNMJR3.jpg -->
           <div class="bg-capa" style="background-image: url('{{foto}}')">
             <div class="row " >
               <img src="{{foto}}" class="card-img-top img-fluid tam mt-3 mb-2 img-perfil" alt="...">
@@ -104,7 +103,7 @@
             <div class="card-columns">
 
               <div class="card-centro mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
-
+                
                 <div class="row col-md-12">
 
                   <div class="col-md-1">
@@ -125,20 +124,11 @@
                 <div class="card-body text-center bg-light me-3 ms-3">
 
                   <h4 class="card-title mt-4 mb-2"><b>{{item.titulo}}</b></h4>
-
-                  <img src="{{item.midia}}" width="100%" height="300px">
-
-                  <!-- <video src="https://www.youtube.com/embed/kXYiU_JCYtU" controls="controls">vídeo não suportado </video> -->
-      
-                  <!-- <a href="{{item.midia}}" (click)='getQuadro()'>
-                    <img class="circular" src="https://i.imgur.com/R7U3hoc.png
-                    " alt="selo" width="100px" height="100px"
-                      title="botão" border-radius="50%" />
-                  </a>
                   
+                  <img src="{{item.foto}}" width="100%" height="300px" *ngIf="item.foto != null " >
+              
+                  <iframe width="100%" height="300px" [src]="item.video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen *ngIf="item.video != null " ></iframe>
                   
-                  <iframe name='getQuadro()' width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-
                   <p class="card-text mt-4 mb-4">{{item.descricao}}</p>
 
                 </div>
@@ -197,8 +187,11 @@
                 <div class="card-body text-center bg-light me-3 ms-3">
 
                   <h4 class="card-title mt-4 mb-2"><b>{{item.titulo}}</b></h4>
-
-                  <img src="{{item.midia}}" width="100%" height="300px">
+                  
+                  <img src="{{item.foto}}" width="100%" height="300px" *ngIf="item.foto != null " >
+              
+                  <iframe width="100%" height="300px" [src]="item.video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen *ngIf="item.video != null " ></iframe>
+                  
                   <p class="card-text mt-4 mb-4">{{item.descricao}}</p>
 
                 </div>
@@ -250,8 +243,6 @@
                       class=" rounded-circle mt-4">
                   </div>
 
-
-
                   <div class="col-md-10 card-body pt-4">
                     <h5 class="tx txtNome ms-4"><b>{{item.usuario.nome}}</b></h5>
                     <h5 class="tx text-muted ms-4">{{item.dataPostagem | date: 'dd/MM/yyyy'}} às
@@ -264,7 +255,11 @@
                 <div class="card-body text-center bg-light me-3 ms-3">
 
                   <h4 class="card-title mt-4 mb-2"><b>{{item.titulo}}</b></h4>
-                  <img src="{{item.midia}}" width="100%" height="300px">
+                  
+                  <img src="{{item.foto}}" width="100%" height="300px" *ngIf="item.foto != null " >
+              
+                  <iframe width="100%" height="300px" [src]="item.video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen *ngIf="item.video != null " ></iframe>
+                  
                   <p class="card-text mt-4 mb-4">{{item.descricao}}</p>
 
                 </div>

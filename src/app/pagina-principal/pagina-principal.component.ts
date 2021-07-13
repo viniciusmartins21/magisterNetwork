@@ -9,11 +9,16 @@ import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
 import { AlertasService } from '../service/alertas.service';
 
+//importe para sanitizar vídeo:
+import { DomSanitizer } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-pagina-principal',
   templateUrl: './pagina-principal.component.html',
   styleUrls: ['./pagina-principal.component.css']
 })
+
 export class PaginaPrincipalComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
@@ -35,14 +40,21 @@ export class PaginaPrincipalComponent implements OnInit {
   key = 'data'
   reverse = true
 
+  //var criadas pra remanejamento de tipos diferentes de midia:
+  midiaFoto = false
+  midiaVideo = false
 
   constructor(
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
     private authService: AuthService,
-    private alertas: AlertasService
-  ) { }
+    private alertas: AlertasService,
+    //importe para sanitizar vídeo:
+    private sanitizer: DomSanitizer
+  ) {
+    
+  }
 
   ngOnInit() {
     window.scroll(0, 0)
@@ -50,16 +62,12 @@ export class PaginaPrincipalComponent implements OnInit {
       this.router.navigate(['/login'])
     }
 
-    /* refresh sempre antes (refresh postagem e tema) */
+    // método refresh sempre antes dos demais (refresh postagem e tema):
     this.postagemService.refreshToken()
     this.temaService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
-
-
-
     this.findAllTemas()
-
   }
 
   getAllTemas() {
@@ -79,9 +87,21 @@ export class PaginaPrincipalComponent implements OnInit {
       this.user = resp
     })
   }
+
+  // método modificado para exibir vídeos do youtube ou fotos nas postagens:
   getAllPostagens() {
+    this.listaPostagens = []
+    this.midiaFoto = false
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.listaPostagens = resp
+      resp.forEach((item) => {
+        if(item.midia.indexOf('youtube') != -1){
+          item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
+        } else {
+          item.foto = item.midia
+        }
+        this.listaPostagens.push(item) 
+      })
+      
     })
   }
 
@@ -129,9 +149,5 @@ export class PaginaPrincipalComponent implements OnInit {
 
   }
 
-  // getQuadro() {
-  //   return this.postagem.id;
-  //   console.log(this.postagem.id);
-  // }
-
+  
 }
