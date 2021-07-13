@@ -50,6 +50,7 @@ export class UserEditComponent implements OnInit {
         environment.foto = ''
         environment.id = 0
         environment.profissao = ''
+        environment.fotoCapa=''
         this.router.navigate(['/login'])
       })
     }

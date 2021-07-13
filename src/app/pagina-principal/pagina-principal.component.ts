@@ -8,6 +8,9 @@ import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
 import { AlertasService } from '../service/alertas.service';
+import { ComentarioService } from '../service/comentario.service';
+import { Comentario } from '../model/Comentario';
+import { UserLogin } from '../model/UserLogin';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -28,9 +31,15 @@ export class PaginaPrincipalComponent implements OnInit {
   user: User = new User()
   idUser = environment.id
 
+
   profissao = environment.profissao
   foto = environment.foto
   nome = environment.nome
+  fotoCapa = environment.fotoCapa
+
+  comentario: Comentario = new Comentario()
+  listaComentario: Comentario[]
+  idComentario: number
 
   key = 'data'
   reverse = true
@@ -41,7 +50,8 @@ export class PaginaPrincipalComponent implements OnInit {
     private postagemService: PostagemService,
     private temaService: TemaService,
     private authService: AuthService,
-    private alertas: AlertasService
+    private alertas: AlertasService,
+    private comentarioService: ComentarioService,
   ) { }
 
   ngOnInit() {
@@ -53,12 +63,14 @@ export class PaginaPrincipalComponent implements OnInit {
     /* refresh sempre antes (refresh postagem e tema) */
     this.postagemService.refreshToken()
     this.temaService.refreshToken()
+    this.comentarioService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
 
 
 
     this.findAllTemas()
+    this.findAllComentario()
 
   }
 
@@ -129,9 +141,29 @@ export class PaginaPrincipalComponent implements OnInit {
 
   }
 
-  // getQuadro() {
-  //   return this.postagem.id;
-  //   console.log(this.postagem.id);
-  // }
+  findAllComentario() {
+    this.comentarioService.getAllComentario().subscribe((resp: Comentario[]) => {
+      this.listaComentario = resp
+    })
+  }
+
+  findByIdComentario() {
+    this.comentarioService.getByIdComentario(this.idComentario).subscribe((resp: Comentario) => {
+      this.comentario = resp
+    })
+  }
+
+  comentar(id: number) {
+    this.user.id = environment.id
+    this.comentario.usuario = this.user
+    this.postagem.id = id
+    this.comentario.postagem = this.postagem
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
+      this.comentario = resp
+      this.comentario = new Comentario
+      this.getAllPostagens()
+    })
+  }
+
 
 }
