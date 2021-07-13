@@ -1,4 +1,4 @@
-/*Botões Centro:*/
+/* POSTAGENS: */
 
 .btn-azul {
     background-color: #006BA6;
@@ -8,39 +8,8 @@
     font-size: 17px;
     width: 190px;
     height: 45px;
-    word-wrap: break-word;
-    box-sizing: border-box;
 }
 
-.btn-amarelo {
-    background-color: #FF9C05;
-    border-radius: 30px;
-    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
-    color: #ffffff;
-}
-
-.btn-azul2 {
-    background-color: #006BA6;
-    border-radius: 30px;
-    box-shadow: 0px 4px 7px 0px rgba(59, 45, 45, 0.50);
-    color: #ffffff;
-}
-
-.fundo-integrantes {
-    background-image: url('https://i.imgur.com/memoGWv.jpg');
-    min-height: 50px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.fa {
-    font-size: 25pt;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-}
-
-/* Postagens: */
 .redondo{
     border-radius: 50px;
 }
@@ -74,17 +43,20 @@
     padding: 10px;
     color: black;
 }
-#fa{
-    font-size: 20pt;
-    padding: 10px;
-    color:rgb(255, 255, 255);
-}
+
 
 .txtNome {
     padding-top: 15px;
 }
 
-/*Perfil:*/
+/* POSTAGENS: */
+
+/* PERFIL: */
+#fa{
+    font-size: 20pt;
+    padding: 10px;
+    color:rgb(255, 255, 255);
+}
 
 .padding {
     padding: 35px 50px;
@@ -98,11 +70,8 @@
     font-weight: 500;
     font-size: 20px;
     /*width: 200px;*/
-}
-
-
-.padding {
-    padding: 35px 50px;
+    box-sizing: border-box;
+    word-wrap: break-word;
 }
 
 .tam{
@@ -110,13 +79,6 @@
     height: 150px;
     width: 150px;
     margin: 0 auto;
-}
-
-/*lista Temas:*/
-
-.tam2 {
-    height: 70px;
-    width: 70px;
 }
 
 .bg-nav{
@@ -130,13 +92,8 @@
 .img-perfil{
     border-radius:50%;
     width: 150px;
-    border: solid white 2.2px;
-    
+    border: solid #E5E5E5 2px;
     padding: 0;
-}
-
-.redondo{
-    border-radius: 50px;
 }
 
 .bg-capa{
@@ -150,10 +107,8 @@
     height: 100px;
     /* height: 33%; */
 }
+/* PERFIL: */
 
-.bg-principal{
-    background-image: url('https://i.imgur.com/memoGWv.jpg');
-    background-size:contain;
-    background-repeat: repeat-y;
-    
-}
+
+
+
