@@ -63,6 +63,7 @@ export class PaginaPrincipalComponent implements OnInit {
     /* refresh sempre antes (refresh postagem e tema) */
     this.postagemService.refreshToken()
     this.temaService.refreshToken()
+    this.comentarioService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
 
@@ -157,11 +158,11 @@ export class PaginaPrincipalComponent implements OnInit {
     this.comentario.usuario = this.user
     this.postagem.id = id
     this.comentario.postagem = this.postagem
-  this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario)=>{
-    this.comentario = resp
-    this.comentario = new Comentario
-    this.getAllPostagens()
-  })
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
+      this.comentario = resp
+      this.comentario = new Comentario
+      this.getAllPostagens()
+    })
   }
 
 }

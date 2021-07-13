@@ -19,21 +19,21 @@ export class AuthService {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
-  entrar(userLogin: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>('https://magisternetwork.herokuapp.com/usuarios/logar', userLogin)
+  entrar(userLogin: UserLogin): Observable<UserLogin> {
+    return this.http.post<UserLogin>(`${environment.uri}/usuarios/logar`, userLogin)
 
   }
-  cadastrar(user: User): Observable<User>{
-    return this.http.post<User>('https://magisternetwork.herokuapp.com/usuarios/cadastrar', user)
+  cadastrar(user: User): Observable<User> {
+    return this.http.post<User>(`${environment.uri}/usuarios/cadastrar`, user)
   }
 
-  getByIdUser(id: number): Observable<User>{
-    return this.http.get<User>(`https://magisternetwork.herokuapp.com/usuarios/${id}`)
+  getByIdUser(id: number): Observable<User> {
+    return this.http.get<User>(`${environment.uri}/usuarios/${id}`)
   }
- 
-  logado(){
+
+  logado() {
     let ok: boolean = false
-    if(environment.token != ''){
+    if (environment.token != '') {
       ok = true
     }
     return ok

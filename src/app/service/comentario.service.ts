@@ -24,24 +24,24 @@ export class ComentarioService {
   }
 
   getByIdComentario(id: number): Observable<Comentario>{
-    return this.http.get<Comentario>(`https://magisternetwork.herokuapp.com/comentarios/${id}`, this.token)
+    return this.http.get<Comentario>(`${environment.uri}/comentarios/${id}`, this.token)
   }
 
   getAllComentario(): Observable<Comentario[]>{
-    return this.http.get<Comentario[]>('https://magisternetwork.herokuapp.com/comentarios', this.token)
+    return this.http.get<Comentario[]>(`${environment.uri}/comentarios`, this.token)
 
   }
 
   postComentario(comentario: Comentario): Observable<Comentario>{
-    return this.http.post<Comentario>('https://magisternetwork.herokuapp.com​/comentarios', comentario, this.token)
+    return this.http.post<Comentario>(`${environment.uri}/comentarios`, comentario, this.token)
   }
 
   putComentario(comentario: Comentario): Observable<Comentario>{
-    return this.http.put<Comentario>('https://magisternetwork.herokuapp.com/comentarios', comentario, this.token)
+    return this.http.put<Comentario>(`${environment.uri}/comentarios`, comentario, this.token)
   }
 
   deleteComentario(id: number){
-    return this.http.delete(`https://magisternetwork.herokuapp.com/comentarios/${id}`, this.token)
+    return this.http.delete(`${environment.uri}/comentarios/${id}`, this.token)
   }
 
 
