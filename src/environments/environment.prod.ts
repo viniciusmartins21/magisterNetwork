@@ -6,4 +6,5 @@ export const environment = {
   foto: '',
   email: '',
   profissao: '',
+  fotoCapa:'',
 };
