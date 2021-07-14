@@ -82,13 +82,22 @@ export class PaginaPrincipalComponent implements OnInit {
     })
   }
 
+  //Método modificado para exibir vídeos do youtube ou fotos nas minhas postagens:
   findByIdUser() {
     this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
       this.user = resp
+      this.user.postagem.forEach((item) => {
+        if(item.midia.indexOf('youtube') != -1){
+          item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
+        } else {
+          item.foto = item.midia
+        }
+        this.user.postagem.push(item)
+      })
     })
   }
 
-  // método modificado para exibir vídeos do youtube ou fotos nas postagens:
+  //Método modificado para exibir vídeos do youtube ou fotos em todas as postagens:
   getAllPostagens() {
     this.listaPostagens = []
     this.midiaFoto = false
@@ -99,15 +108,27 @@ export class PaginaPrincipalComponent implements OnInit {
         } else {
           item.foto = item.midia
         }
-        this.listaPostagens.push(item) 
+        this.listaPostagens.push(item)
       })
       
     })
   }
 
+  //Método modificado para exibir vídeos do youtube ou fotos nas postagens por tema:
   findAllTemas() {
+    this.listaTemas = []
     this.temaService.getAllTema().subscribe((resp: Tema[]) => {
-      this.listaTemas = resp
+      
+      resp.forEach((tema) => {
+        tema.postagem.forEach((item) => {
+          if(item.midia.indexOf('youtube') != -1){
+            item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
+          } else {
+            item.foto = item.midia
+          }
+        })
+        this.listaTemas.push(tema)
+      })
     })
   }
 
