@@ -12,11 +12,16 @@ import { ComentarioService } from '../service/comentario.service';
 import { Comentario } from '../model/Comentario';
 import { UserLogin } from '../model/UserLogin';
 
+//importe para sanitizar vídeo:
+import { DomSanitizer } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-pagina-principal',
   templateUrl: './pagina-principal.component.html',
   styleUrls: ['./pagina-principal.component.css']
 })
+
 export class PaginaPrincipalComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
@@ -44,6 +49,9 @@ export class PaginaPrincipalComponent implements OnInit {
   key = 'data'
   reverse = true
 
+  //var criadas pra remanejamento de tipos diferentes de midia:
+  midiaFoto = false
+  midiaVideo = false
 
   constructor(
     private router: Router,
@@ -51,26 +59,28 @@ export class PaginaPrincipalComponent implements OnInit {
     private temaService: TemaService,
     private authService: AuthService,
     private alertas: AlertasService,
-    private comentarioService: ComentarioService,
+    //importe para sanitizar vídeo:
+    private sanitizer: DomSanitizer,
+    private comentarioService: ComentarioService
   ) { }
-
+    
+  
   ngOnInit() {
     window.scroll(0, 0)
     if (environment.token == '') {
       this.router.navigate(['/login'])
     }
 
-    /* refresh sempre antes (refresh postagem e tema) */
+    // método refresh sempre antes dos demais (refresh postagem e tema):
     this.postagemService.refreshToken()
     this.temaService.refreshToken()
     this.comentarioService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
-
-
-
     this.findAllTemas()
+
     this.findAllComentario()
+
 
   }
 
@@ -86,20 +96,53 @@ export class PaginaPrincipalComponent implements OnInit {
     })
   }
 
+  //Método modificado para exibir vídeos do youtube ou fotos nas minhas postagens:
   findByIdUser() {
     this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
       this.user = resp
-    })
-  }
-  getAllPostagens() {
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.listaPostagens = resp
+      this.user.postagem.forEach((item) => {
+        if(item.midia.indexOf('youtube') != -1){
+          item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
+        } else {
+          item.foto = item.midia
+        }
+        this.user.postagem.push(item)
+      })
     })
   }
 
+  //Método modificado para exibir vídeos do youtube ou fotos em todas as postagens:
+  getAllPostagens() {
+    this.listaPostagens = []
+    this.midiaFoto = false
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
+      resp.forEach((item) => {
+        if(item.midia.indexOf('youtube') != -1){
+          item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
+        } else {
+          item.foto = item.midia
+        }
+        this.listaPostagens.push(item)
+      })
+      
+    })
+  }
+
+  //Método modificado para exibir vídeos do youtube ou fotos nas postagens por tema:
   findAllTemas() {
+    this.listaTemas = []
     this.temaService.getAllTema().subscribe((resp: Tema[]) => {
-      this.listaTemas = resp
+      
+      resp.forEach((tema) => {
+        tema.postagem.forEach((item) => {
+          if(item.midia.indexOf('youtube') != -1){
+            item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
+          } else {
+            item.foto = item.midia
+          }
+        })
+        this.listaTemas.push(tema)
+      })
     })
   }
 
@@ -141,6 +184,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
   }
 
+
   findAllComentario() {
     this.comentarioService.getAllComentario().subscribe((resp: Comentario[]) => {
       this.listaComentario = resp
@@ -164,6 +208,5 @@ export class PaginaPrincipalComponent implements OnInit {
       this.getAllPostagens()
     })
   }
-
 
 }
