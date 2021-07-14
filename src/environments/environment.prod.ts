@@ -7,7 +7,7 @@ export const environment = {
   email: '',
   profissao: '',
   fotoCapa:'',
-  uri: 'http://localhost:8080',
+  uri: 'https://magisternetwork.herokuapp.com',
 };
 
 
