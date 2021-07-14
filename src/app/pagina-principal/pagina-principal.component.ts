@@ -151,6 +151,28 @@ export class PaginaPrincipalComponent implements OnInit {
     })
 
   }
+  
+  // findByTituloPostagem() {
+
+  //   if (this.tituloPost == '') {
+  //     this.getAllPostagens()
+  //   } else {
+  //     this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[]) => {
+  //       this.listaPostagens = resp
+  //     })
+  //   }
+  // }
+
+  // findByNomeTema() {
+  //   if (this.nomeTema == '') {
+  //     this.findAllTemas()
+  //   } else {
+  //     this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[]) => {
+  //       this.listaTemas = resp
+  //     })
+  //   }
+
+  // }
 
   findByTituloPostagem() {
 
@@ -158,7 +180,16 @@ export class PaginaPrincipalComponent implements OnInit {
       this.getAllPostagens()
     } else {
       this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[]) => {
-        this.listaPostagens = resp
+         this.listaPostagens = resp
+          //for pra sanitifazer midia de vídeo
+          resp.forEach((item) => {
+          if(item.midia.indexOf('youtube') != -1){
+            item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
+          } else {
+            item.foto = item.midia
+          }
+          //for pra sanitifazer midia de vídeo
+        })
       })
     }
   }
@@ -169,6 +200,17 @@ export class PaginaPrincipalComponent implements OnInit {
     } else {
       this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[]) => {
         this.listaTemas = resp
+        //for pra sanitifazer midia de vídeo
+        resp.forEach((tema) => {
+          tema.postagem.forEach((item) => {
+            if(item.midia.indexOf('youtube') != -1){
+              item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
+            } else {
+              item.foto = item.midia
+            }
+          })
+        })
+        //for pra sanitifazer midia de vídeo
       })
     }
 
