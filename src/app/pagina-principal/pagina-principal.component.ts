@@ -147,6 +147,7 @@ export class PaginaPrincipalComponent implements OnInit {
       this.alertas.showAlertSuccess('Postagem realizada com sucesso!', 'success')
       this.postagem = new Postagem
       this.getAllPostagens()
+      this.findAllTemas()
     })
 
   }
@@ -194,6 +195,7 @@ export class PaginaPrincipalComponent implements OnInit {
       this.comentario = resp
       this.comentario = new Comentario
       this.getAllPostagens()
+      this.findAllTemas()
     })
   }
 
