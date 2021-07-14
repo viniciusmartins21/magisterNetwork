@@ -63,8 +63,8 @@ export class PaginaPrincipalComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private comentarioService: ComentarioService
   ) { }
-    
-  
+
+
   ngOnInit() {
     window.scroll(0, 0)
     if (environment.token == '') {
@@ -75,19 +75,9 @@ export class PaginaPrincipalComponent implements OnInit {
     this.postagemService.refreshToken()
     this.temaService.refreshToken()
     this.comentarioService.refreshToken()
-    this.getAllTemas()
     this.getAllPostagens()
     this.findAllTemas()
-
     this.findAllComentario()
-
-
-  }
-
-  getAllTemas() {
-    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
-      this.listaTemas = resp
-    })
   }
 
   findByIdTema() {
@@ -99,15 +89,14 @@ export class PaginaPrincipalComponent implements OnInit {
   //Método modificado para exibir vídeos do youtube ou fotos nas minhas postagens:
   findByIdUser() {
     this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
-      this.user = resp
-      this.user.postagem.forEach((item) => {
+      resp.postagem.forEach((item) => {
         if(item.midia.indexOf('youtube') != -1){
           item.video = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia)
         } else {
           item.foto = item.midia
         }
-        this.user.postagem.push(item)
       })
+      this.user = resp
     })
   }
 
@@ -124,7 +113,7 @@ export class PaginaPrincipalComponent implements OnInit {
         }
         this.listaPostagens.push(item)
       })
-      
+
     })
   }
 
@@ -132,7 +121,7 @@ export class PaginaPrincipalComponent implements OnInit {
   findAllTemas() {
     this.listaTemas = []
     this.temaService.getAllTema().subscribe((resp: Tema[]) => {
-      
+
       resp.forEach((tema) => {
         tema.postagem.forEach((item) => {
           if(item.midia.indexOf('youtube') != -1){
@@ -175,7 +164,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
   findByNomeTema() {
     if (this.nomeTema == '') {
-      this.getAllTemas()
+      this.findAllTemas()
     } else {
       this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[]) => {
         this.listaTemas = resp
@@ -183,7 +172,6 @@ export class PaginaPrincipalComponent implements OnInit {
     }
 
   }
-
 
   findAllComentario() {
     this.comentarioService.getAllComentario().subscribe((resp: Comentario[]) => {
