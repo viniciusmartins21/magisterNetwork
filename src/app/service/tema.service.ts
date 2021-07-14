@@ -22,27 +22,27 @@ export class TemaService {
   }
 
   getAllTema(): Observable<Tema[]> {
-    return this.http.get<Tema[]>('https://magisternetwork.herokuapp.com/tema', this.token)
+    return this.http.get<Tema[]>(`${environment.uri}/tema`, this.token)
   }
 
   getByIdTema(id: number): Observable<Tema> {
-    return this.http.get<Tema>(`https://magisternetwork.herokuapp.com/tema/${id}`, this.token)
+    return this.http.get<Tema>(`${environment.uri}/tema/${id}`, this.token)
   }
 
   getByNomeTema(disciplinaTema: string): Observable<Tema[]> {
-    return this.http.get<Tema[]>(`https://magisternetwork.herokuapp.com/tema/disciplinaTema/${disciplinaTema}`, this.token)
+    return this.http.get<Tema[]>(`${environment.uri}/tema/disciplinaTema/${disciplinaTema}`, this.token)
   }
 
   postTema(tema: Tema): Observable<Tema> {
-    return this.http.post<Tema>('https://magisternetwork.herokuapp.com/tema', tema, this.token)
+    return this.http.post<Tema>(`${environment.uri}/tema`, tema, this.token)
 
   }
 
   putTema(tema: Tema): Observable<Tema> {
-    return this.http.put<Tema>(`https://magisternetwork.herokuapp.com/tema`, tema, this.token)
+    return this.http.put<Tema>(`${environment.uri}/tema`, tema, this.token)
   }
 
   deleteTema(id: number) {
-    return this.http.delete(`https://magisternetwork.herokuapp.com/tema/${id}`, this.token)
+    return this.http.delete(`${environment.uri}/tema/${id}`, this.token)
   }
 }

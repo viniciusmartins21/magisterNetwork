@@ -14,8 +14,12 @@
       </div>
       <div class="row  d-flex justify-content-center">
         <div class="card p-0 pb-0">
-          <div class="bg-capa" style="background-image: url('{{foto}}')">
-            <div class="row " >
+
+
+          <div class="bg-capa" style="background-image: url('{{fotoCapa}}')">
+            <div class="row ">
+
+
               <img src="{{foto}}" class="card-img-top img-fluid tam mt-3 mb-2 img-perfil" alt="...">
             </div>
           </div>
@@ -23,7 +27,6 @@
             <h5 class="card-title text-center mt-3 mb-2"> {{nome}} </h5>
 
             <p class="card-title text-center mb-2">{{profissao}}</p>
-            
 
           </div>
         </div>
@@ -31,23 +34,26 @@
       </div>
 
       <div class="row d-flex justify-content-center mt-3">
-          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-3" data-bs-toggle="modal" data-bs-target="#novaPostagem">
-            Nova Postagem
-          </button>
+        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-3"
+          data-bs-toggle="modal" data-bs-target="#novaPostagem">
+          Nova Postagem
+        </button>
       </div>
 
       <div class="row d-flex justify-content-center">
-          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" routerLink='/tema'>
-            Adicionar Tema
-          </button>
+        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2"
+          routerLink='/tema'>
+          Adicionar Tema
+        </button>
       </div>
 
       <div class="row d-flex justify-content-center">
-          <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2" 
-            [routerLink]="['/user-edit', idUser]">
-            <i class="fa fa-pencil-square-o" id="fa" aria-hidden="true"> </i>
-            <p class="text-white text-center mt-3 ">Editar Perfil</p>
-          </button>
+        <button class="btn btn-azul text-light justify-content-center align-items-center d-flex mt-2"
+          [routerLink]="['/user-edit', idUser]">
+          <i class="fa fa-pencil-square-o" id="fa" aria-hidden="true"> </i>
+          <p class="text-white text-center mt-3 ">Editar Perfil</p>
+        </button>
+
       </div>
 
     </div>
@@ -61,19 +67,21 @@
         <nav>
           <div class="nav nav-pills nav-fill" id="nav-tab" role="tablist">
 
-            
-            <button class="nav-link active text-white bg-nav redondo btn-azul" id="nav-todasPostagens-tab" data-bs-toggle="tab" data-bs-target="#nav-todasPostagens" type="button" role="tab"  aria-controls="nav-todasPostagens" aria-selected="true">
+
+
+            <button class="nav-link active text-white bg-nav redondo btn-azul" id="nav-todasPostagens-tab"
+              data-bs-toggle="tab" data-bs-target="#nav-todasPostagens" type="button" role="tab"
+              aria-controls="nav-todasPostagens" aria-selected="true">
               Todas as Postagens
             </button>
-            
-            <button (click)='findByIdUser()' class="nav-link text-white bg-nav me-2 ms-2 redondo btn-azul" id="nav-minhasPostagens-tab"
-              data-bs-toggle="tab" data-bs-target="#nav-minhasPostagens" type="button" role="tab"
-              aria-controls="nav-minhasPostagens" aria-selected="false">
+
+            <button (click)='findByIdUser()' class="nav-link text-white bg-nav me-2 ms-2 redondo btn-azul"
+              id="nav-minhasPostagens-tab" data-bs-toggle="tab" data-bs-target="#nav-minhasPostagens" type="button"
+              role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">
               Minhas Postagens
             </button>
 
             <button class="nav-link text-white bg-nav redondo btn-azul" id="nav-postagemTema-tab" data-bs-toggle="tab"
-
               data-bs-target="#nav-postagemTema" type="button" role="tab" aria-controls="nav-postagemTema"
               aria-selected="false">
               Postagem por tema
@@ -124,7 +132,7 @@
                 <div class="card-body text-center bg-light me-3 ms-3">
 
                   <h4 class="card-title mt-4 mb-2"><b>{{item.titulo}}</b></h4>
-                  
+               
                   <img src="{{item.foto}}" width="100%" height="300px" *ngIf="item.foto != null " >
               
                   <iframe width="100%" height="300px" [src]="item.video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen *ngIf="item.video != null " ></iframe>
@@ -135,7 +143,74 @@
 
                 <div class="d-flex col-md-12 d-flex justify-content-center">
 
-                  <a href="" target="_blank" class="p-3">
+                  <!--Comentarios -->
+                  <div class="accordion" [attr.id]="'comentarioPostagem' + item.id">
+
+                    <div class="mt-2" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button (click)='findAllComentario()' class="btn btn-link collapsed text-dark" type="button"
+                          data-bs-toggle="collapse" [attr.data-bs-target]="'#' + 'comentButtonPostagemId' + item.id"
+                          aria-expanded="false" aria-controls="collapseTwo">
+                          <p class="text-primary font-weight-bold mb-2">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar
+                          </p>
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div [attr.id]="'comentButtonPostagemId' + item.id" class="collapse" aria-labelledby="headingTwo"
+                      [attr.data-parent]="'#' + 'comentarioPostagem' + item.id">
+
+                      <div class="row mb-3">
+                        <div class="col d-flex justify-content-center align-items-center p-4">
+                          <img class="rounded-circle mr-3" src={{foto}} width="30px" height="30px" />
+                          <div class="input-group w-100">
+                            <input type="text" class="form-control mr-2" placeholder="Digite aqui seu comentário"
+                              aria-label="Recipient's username" aria-describedby="button-addon2"
+                              [(ngModel)]='comentario.comentario' id='inputComentario'>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary" (click)='comentar(item.id)'
+                                id="button-addon2">Comentar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row d-flex justify-content-center"
+                        *ngFor='let coment of item.comentario | orderBy : key : reverse'>
+                        <div class="col-md-11">
+                          <div class="card mb-3 shadow border-0 rounded">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col d-flex justify-content-start">
+                                  <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px"
+                                      height="30px" />
+                                    {{coment.usuario.nome}} comentou: </p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <p class="card-text ml-4" aria-describedby="texto">{{coment.comentario}}
+                                  </p>
+                                </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="d-flex justify-content-end">
+                                <small id="texto" class="form-text m-0 text-muted text-monospace">
+                                  Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data |
+                                  date:'HH:mm'}}
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/Comentarios-->
+
+                  <!-- <a href="" target="_blank" class="p-3">
                     <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                   </a>
 
@@ -145,7 +220,7 @@
 
                   <a href="" target="_blank" class="p-3">
                     <i class="fa fa-share" aria-hidden="true"></i>
-                  </a>
+                  </a> -->
 
                 </div>
 
@@ -198,17 +273,72 @@
 
                 <div class="d-flex col-md-12 d-flex justify-content-center">
 
-                  <a href="" target="_blank" class="p-3">
-                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                  </a>
+                  <!--Comentarios -->
+                  <div class="accordion" [attr.id]="'comentarioPostagem' + item.id">
 
-                  <a href="" target="_blank" class="p-3">
-                    <i class="fa fa-commenting" aria-hidden="true"></i>
-                  </a>
+                    <div class="mt-2" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button (click)='findAllComentario()' class="btn btn-link collapsed text-dark" type="button"
+                          data-bs-toggle="collapse" [attr.data-bs-target]="'#' + 'comentButtonPostagemId' + item.id"
+                          aria-expanded="false" aria-controls="collapseTwo">
+                          <p class="text-primary font-weight-bold mb-2">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar
+                          </p>
+                        </button>
+                      </h5>
+                    </div>
 
-                  <a href="" target="_blank" class="p-3">
-                    <i class="fa fa-share" aria-hidden="true"></i>
-                  </a>
+                    <div [attr.id]="'comentButtonPostagemId' + item.id" class="collapse" aria-labelledby="headingTwo"
+                      [attr.data-parent]="'#' + 'comentarioPostagem' + item.id">
+
+                      <div class="row mb-3">
+                        <div class="col d-flex justify-content-center align-items-center p-4">
+                          <img class="rounded-circle mr-3" src={{foto}} width="30px" height="30px" />
+                          <div class="input-group w-100">
+                            <input type="text" class="form-control mr-2" placeholder="Digite aqui seu comentário"
+                              aria-label="Recipient's username" aria-describedby="button-addon2"
+                              [(ngModel)]='comentario.comentario' id='inputComentario'>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary" (click)='comentar(item.id)'
+                                id="button-addon2">Comentar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row d-flex justify-content-center"
+                        *ngFor='let coment of item.comentario | orderBy : key : reverse'>
+                        <div class="col-md-11">
+                          <div class="card mb-3 shadow border-0 rounded">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col d-flex justify-content-start">
+                                  <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px"
+                                      height="30px" />
+                                    {{coment.usuario.nome}} comentou: </p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <p class="card-text ml-4" aria-describedby="texto">{{coment.comentario}}
+                                  </p>
+                                </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="d-flex justify-content-end">
+                                <small id="texto" class="form-text m-0 text-muted text-monospace">
+                                  Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data |
+                                  date:'HH:mm'}}
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/Comentarios-->
 
                 </div>
 
@@ -231,7 +361,7 @@
             </div>
 
             <div class="card-columns" *ngFor='let tema of listaTemas | orderBy : key : reverse'>
-              <div class="card-centro mt-5" *ngFor='let item of tema.postagem'>
+              <div class="card-centro mt-5" *ngFor='let item of tema.postagem | orderBy : key : reverse'>
 
                 <div class="row col-md-12">
 
@@ -266,22 +396,74 @@
 
                 <div class="d-flex col-md-12 d-flex justify-content-center">
 
-                  <a href="" target="_blank" class="p-3">
-                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                  </a>
+                  <!--Comentarios -->
+                  <div class="accordion" [attr.id]="'comentarioPostagem' + item.id">
 
-                  <a href="" target="_blank" class="p-3">
-                    <i class="fa fa-commenting" aria-hidden="true"></i>
-                  </a>
+                    <div class="mt-2" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button (click)='findAllComentario()' class="btn btn-link collapsed text-dark" type="button"
+                          data-bs-toggle="collapse" [attr.data-bs-target]="'#' + 'comentButtonPostagemId' + item.id"
+                          aria-expanded="false" aria-controls="collapseTwo">
+                          <p class="text-primary font-weight-bold mb-2">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar
+                          </p>
+                        </button>
+                      </h5>
+                    </div>
 
-                  <a href="" target="_blank" class="p-3">
-                    <i class="fa fa-share" aria-hidden="true"></i>
-                  </a>
+                    <div [attr.id]="'comentButtonPostagemId' + item.id" class="collapse" aria-labelledby="headingTwo"
+                      [attr.data-parent]="'#' + 'comentarioPostagem' + item.id">
+
+                      <div class="row mb-3">
+                        <div class="col d-flex justify-content-center align-items-center p-4">
+                          <img class="rounded-circle mr-3" src={{foto}} width="30px" height="30px" />
+                          <div class="input-group w-100">
+                            <input type="text" class="form-control mr-2" placeholder="Digite aqui seu comentário"
+                              aria-label="Recipient's username" aria-describedby="button-addon2"
+                              [(ngModel)]='comentario.comentario' id='inputComentario'>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary" (click)='comentar(item.id)'
+                                id="button-addon2">Comentar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row d-flex justify-content-center"
+                        *ngFor='let coment of item.comentario | orderBy : key : reverse'>
+                        <div class="col-md-11">
+                          <div class="card mb-3 shadow border-0 rounded">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col d-flex justify-content-start">
+                                  <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px"
+                                      height="30px" />
+                                    {{coment.usuario.nome}} comentou: </p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <p class="card-text ml-4" aria-describedby="texto">{{coment.comentario}}
+                                  </p>
+                                </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="d-flex justify-content-end">
+                                <small id="texto" class="form-text m-0 text-muted text-monospace">
+                                  Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data |
+                                  date:'HH:mm'}}
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/Comentarios-->
 
                 </div>
-
-
-
               </div>
 
             </div>

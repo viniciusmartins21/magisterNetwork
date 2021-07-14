@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Tema } from 'src/app/model/Tema';
 import { User } from 'src/app/model/User';
 import { AlertasService } from 'src/app/service/alertas.service';
 import { AuthService } from 'src/app/service/auth.service';
@@ -15,6 +16,10 @@ export class UserEditComponent implements OnInit {
   user: User = new User()
   idUser: number
   confirmarSenha: string
+
+  tema: Tema = new Tema()
+  listaTemas: Tema[]
+  idTema: number
 
   constructor(
     private authService: AuthService,
@@ -50,6 +55,7 @@ export class UserEditComponent implements OnInit {
         environment.foto = ''
         environment.id = 0
         environment.profissao = ''
+        environment.fotoCapa=''
         this.router.navigate(['/login'])
       })
     }

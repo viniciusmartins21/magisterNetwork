@@ -8,6 +8,9 @@ import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
 import { AlertasService } from '../service/alertas.service';
+import { ComentarioService } from '../service/comentario.service';
+import { Comentario } from '../model/Comentario';
+import { UserLogin } from '../model/UserLogin';
 
 //importe para sanitizar vídeo:
 import { DomSanitizer } from '@angular/platform-browser';
@@ -33,9 +36,15 @@ export class PaginaPrincipalComponent implements OnInit {
   user: User = new User()
   idUser = environment.id
 
+
   profissao = environment.profissao
   foto = environment.foto
   nome = environment.nome
+  fotoCapa = environment.fotoCapa
+
+  comentario: Comentario = new Comentario()
+  listaComentario: Comentario[]
+  idComentario: number
 
   key = 'data'
   reverse = true
@@ -51,11 +60,11 @@ export class PaginaPrincipalComponent implements OnInit {
     private authService: AuthService,
     private alertas: AlertasService,
     //importe para sanitizar vídeo:
-    private sanitizer: DomSanitizer
-  ) {
+    private sanitizer: DomSanitizer,
+    private comentarioService: ComentarioService
+  ) { }
     
-  }
-
+  
   ngOnInit() {
     window.scroll(0, 0)
     if (environment.token == '') {
@@ -65,9 +74,14 @@ export class PaginaPrincipalComponent implements OnInit {
     // método refresh sempre antes dos demais (refresh postagem e tema):
     this.postagemService.refreshToken()
     this.temaService.refreshToken()
+    this.comentarioService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
     this.findAllTemas()
+
+    this.findAllComentario()
+
+
   }
 
   getAllTemas() {
@@ -170,5 +184,29 @@ export class PaginaPrincipalComponent implements OnInit {
 
   }
 
-  
+
+  findAllComentario() {
+    this.comentarioService.getAllComentario().subscribe((resp: Comentario[]) => {
+      this.listaComentario = resp
+    })
+  }
+
+  findByIdComentario() {
+    this.comentarioService.getByIdComentario(this.idComentario).subscribe((resp: Comentario) => {
+      this.comentario = resp
+    })
+  }
+
+  comentar(id: number) {
+    this.user.id = environment.id
+    this.comentario.usuario = this.user
+    this.postagem.id = id
+    this.comentario.postagem = this.postagem
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
+      this.comentario = resp
+      this.comentario = new Comentario
+      this.getAllPostagens()
+    })
+  }
+
 }

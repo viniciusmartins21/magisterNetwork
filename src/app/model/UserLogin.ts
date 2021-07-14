@@ -8,4 +8,5 @@ export class UserLogin {
     public senha: string
     public token: string
     public profissao: string
+    public fotoCapa: string
 }

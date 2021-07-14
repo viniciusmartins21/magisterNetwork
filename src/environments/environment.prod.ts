@@ -6,4 +6,10 @@ export const environment = {
   foto: '',
   email: '',
   profissao: '',
+  fotoCapa:'',
+  uri: 'https://magisternetwork.herokuapp.com',
 };
+
+
+// 'https://magisternetwork.herokuapp.com'
+// 'http://localhost:8080'

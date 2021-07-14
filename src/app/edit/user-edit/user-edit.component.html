@@ -31,14 +31,20 @@
 
         <div class="form-grop">
           <label for="email">Leciona</label>
-          <input [(ngModel)]='user.profissao' class="form-control mb-3" type="text" name="profissao"
-              id="profissao" placeholder="Biologia, Matemática, Física">
-      </div>
+          <input [(ngModel)]='user.profissao' class="form-control mb-3" type="text" name="profissao" id="profissao"
+            placeholder="Biologia, Matemática, Física">
+        </div>
 
         <div class="form-grop">
           <label for="foto">Link da Foto</label>
           <input [(ngModel)]='user.foto' class="form-control mb-3" type="text" name="foto" id="foto"
             placeholder="Link da sua foto">
+        </div>
+
+        <div class="form-grop">
+          <label for="foto">Link da Capa de Perfil</label>
+          <input [(ngModel)]='user.fotoCapa' class="form-control mb-3" type="text" name="fotoCapa" id="fotoCapa"
+            placeholder="Link da sua capa de perfil">
         </div>
 
         <div class="form-grop">
@@ -57,11 +63,9 @@
 
           <button type="submit" class="btn btn-azul me-4 text-white" routerLink='/pagina-principal'>Cancelar</button>
           <button (click)='atualizar()' type="submit" class="btn btn-amarelo ms-4 text-white">Atualizar</button>
-       
+
         </div>
       </div>
     </div>
-
   </div>
 </div>
-
